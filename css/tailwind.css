@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1a237e; /* indigo-900 - Institutional trust and premium positioning */
+  --color-primary-50: #e8eaf6; /* indigo-50 */
+  --color-primary-100: #c5cae9; /* indigo-100 */
+  --color-primary-200: #9fa8da; /* indigo-200 */
+  --color-primary-300: #7986cb; /* indigo-300 */
+  --color-primary-400: #5c6bc0; /* indigo-400 */
+  --color-primary-500: #3f51b5; /* indigo-500 */
+  --color-primary-600: #3949ab; /* indigo-600 */
+  --color-primary-700: #303f9f; /* indigo-700 */
+  --color-primary-800: #283593; /* indigo-800 */
+  --color-primary-900: #1a237e; /* indigo-900 */
+
+  /* Secondary Colors */
+  --color-secondary: #37474f; /* blue-gray-600 - Sophisticated neutrality */
+  --color-secondary-50: #eceff1; /* blue-gray-50 */
+  --color-secondary-100: #cfd8dc; /* blue-gray-100 */
+  --color-secondary-200: #b0bec5; /* blue-gray-200 */
+  --color-secondary-300: #90a4ae; /* blue-gray-300 */
+  --color-secondary-400: #78909c; /* blue-gray-400 */
+  --color-secondary-500: #607d8b; /* blue-gray-500 */
+  --color-secondary-600: #546e7a; /* blue-gray-600 */
+  --color-secondary-700: #455a64; /* blue-gray-700 */
+  --color-secondary-800: #37474f; /* blue-gray-800 */
+  --color-secondary-900: #263238; /* blue-gray-900 */
+
+  /* Accent Colors */
+  --color-accent: #ffd700; /* yellow-400 - Luxury moments and achievement */
+  --color-accent-50: #fffde7; /* yellow-50 */
+  --color-accent-100: #fff9c4; /* yellow-100 */
+  --color-accent-200: #fff59d; /* yellow-200 */
+  --color-accent-300: #fff176; /* yellow-300 */
+  --color-accent-400: #ffee58; /* yellow-400 */
+  --color-accent-500: #ffeb3b; /* yellow-500 */
+  --color-accent-600: #fdd835; /* yellow-600 */
+  --color-accent-700: #fbc02d; /* yellow-700 */
+  --color-accent-800: #f9a825; /* yellow-800 */
+  --color-accent-900: #f57f17; /* yellow-900 */
+
+  /* Background Colors */
+  --color-background: #fafafa; /* gray-50 - Clean canvas */
+  --color-surface: #ffffff; /* white - Elevated content areas */
+
+  /* Text Colors */
+  --color-text-primary: #212121; /* gray-800 - Clear hierarchy */
+  --color-text-secondary: #757575; /* gray-500 - Supporting content */
+
+  /* Status Colors */
+  --color-success: #2e7d32; /* green-700 - Investment gains */
+  --color-success-50: #e8f5e8; /* green-50 */
+  --color-success-100: #c8e6c9; /* green-100 */
+  --color-success-500: #4caf50; /* green-500 */
+
+  --color-warning: #f57c00; /* orange-600 - Market alerts */
+  --color-warning-50: #fff3e0; /* orange-50 */
+  --color-warning-100: #ffe0b2; /* orange-100 */
+  --color-warning-500: #ff9800; /* orange-500 */
+
+  --color-error: #c62828; /* red-700 - Clear guidance */
+  --color-error-50: #ffebee; /* red-50 */
+  --color-error-100: #ffcdd2; /* red-100 */
+  --color-error-500: #f44336; /* red-500 */
+
+  /* Border Colors */
+  --color-border: #e0e0e0; /* gray-300 */
+  --color-border-light: #f5f5f5; /* gray-100 */
+
+  /* Shadow Variables */
+  --shadow-elevation: 0 4px 20px rgba(26, 35, 126, 0.08);
+  --shadow-subtle: 0 2px 8px rgba(26, 35, 126, 0.04);
+  --shadow-medium: 0 8px 32px rgba(26, 35, 126, 0.12);
+
+  /* Animation Variables */
+  --transition-smooth: 300ms ease-out;
+  --transition-micro: 200ms ease-out;
+  --transition-cinematic: 600ms ease-out;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-montserrat font-medium;
+    @apply hover:bg-primary-700 transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300;
+    box-shadow: var(--shadow-elevation);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-montserrat font-medium;
+    @apply hover:bg-secondary-700 transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-secondary-300;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-primary px-6 py-3 rounded-lg font-montserrat font-medium;
+    @apply hover:bg-accent-600 transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-300;
+  }
+
+  .card-elevated {
+    @apply bg-surface rounded-xl p-6;
+    box-shadow: var(--shadow-elevation);
+    transition: all var(--transition-smooth);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary;
+    @apply transition-all duration-200 ease-out;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-700));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-800) 100%);
+  }
+
+  .section-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all var(--transition-smooth);
+  }
+
+  .transition-micro {
+    transition: all var(--transition-micro);
+  }
+
+  .transition-cinematic {
+    transition: all var(--transition-cinematic);
+  }
+
+  .shadow-elevation {
+    box-shadow: var(--shadow-elevation);
+  }
+
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
