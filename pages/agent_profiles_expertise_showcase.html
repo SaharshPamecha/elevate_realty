@@ -345,7 +345,7 @@
             <div class="section-divider mb-8"></div>
 
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-primary-200 text-sm mb-4 md:mb-0">© 2024 Elevate Realty. All rights reserved.</p>
+                <p class="text-primary-200 text-sm mb-4 md:mb-0"> 2024 Elevate Realty. All rights reserved.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Privacy Policy</a>
                     <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Terms of Service</a>
@@ -364,6 +364,9 @@
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
     <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
     <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Global JavaScript -->
+    <script src="../assets/js/global.js"></script>
 
     <!-- Agent Contact Modal -->
     <div id="agentContactModal" class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
@@ -400,221 +403,79 @@
         </div>
     </div>
 
-    <!-- Generic Inquiry Modal -->
-    <div id="genericInquiryModal" class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
-        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="genericInquiryModalContent">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-montserrat font-semibold text-primary">Inquiry Form</h2>
-                <button id="closeGenericInquiryModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <form id="genericInquiryForm">
-                <div class="space-y-4">
-                    <div>
-                        <label for="inquiryServiceName" class="block text-sm font-medium text-text-secondary mb-1">Service Requested</label>
-                        <input type="text" id="inquiryServiceName" name="inquiryServiceName" readonly class="input-field w-full bg-gray-100 cursor-not-allowed">
-                    </div>
-                    <div>
-                        <label for="inquiryUserName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
-                        <input type="text" id="inquiryUserName" name="inquiryUserName" required class="input-field w-full" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label for="inquiryUserEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
-                        <input type="email" id="inquiryUserEmail" name="inquiryUserEmail" required class="input-field w-full" placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label for="inquiryUserPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
-                        <input type="tel" id="inquiryUserPhone" name="inquiryUserPhone" class="input-field w-full" placeholder="(555) 123-4567">
-                    </div>
-                    <div>
-                        <label for="inquiryUserMessage" class="block text-sm font-medium text-text-secondary mb-1">Additional Details/Message</label>
-                        <textarea id="inquiryUserMessage" name="inquiryUserMessage" rows="3" class="input-field w-full" placeholder="Any specific requests or questions?"></textarea>
-                    </div>
-                </div>
-                <div class="mt-8 text-right">
-                    <button type="submit" id="sendGenericInquiryBtn" class="btn-primary px-8 py-3">Submit Inquiry</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // User Authentication Links Management
-            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
-            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
-
-            function handleLogout() {
-                localStorage.removeItem('isUserLoggedIn');
-                localStorage.removeItem('loggedInUserEmail');
-                localStorage.removeItem('loggedInUserName');
-                alert('You have been logged out.');
-                updateAuthLinks();
-            }
-
-            function updateAuthLinks() {
-                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-                let desktopLinksHTML = '';
-                let mobileLinksHTML = '';
-
-                if (isLoggedIn) {
-                    desktopLinksHTML = `
-                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
-                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
-                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
-                    `;
-                } else {
-                    desktopLinksHTML = `
-                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
-                    `;
-                }
-
-                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
-                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
-
-                if (isLoggedIn) {
-                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
-                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
-                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
-                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
-                }
-            }
-            updateAuthLinks();
-
-            // Generic Inquiry Modal Logic
-            const genericInquiryModal = document.getElementById('genericInquiryModal');
-            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
-            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
-            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
-            const genericInquiryForm = document.getElementById('genericInquiryForm');
-            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
-
-            function openGenericModal(serviceType) {
-                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModal.classList.remove('hidden');
-                    setTimeout(() => { 
-                        genericInquiryModal.classList.remove('opacity-0');
-                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
-                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                }
-            }
-
-            function closeGenericModal() {
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
-                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
-                    genericInquiryModal.classList.add('opacity-0');
-                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
-                }
-            }
-
-            openInquiryModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const serviceType = button.dataset.serviceType || 'General Inquiry';
-                    openGenericModal(serviceType);
-                });
-            });
-
-            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
-            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
-                if (event.target === genericInquiryModal) closeGenericModal();
-            });
-
-            if (genericInquiryForm) {
-                genericInquiryForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    const formData = new FormData(genericInquiryForm);
-                    console.log('Generic Inquiry Submitted:', {
-                        serviceRequested: formData.get('inquiryServiceName'),
-                        name: formData.get('inquiryUserName'),
-                        email: formData.get('inquiryUserEmail'),
-                        phone: formData.get('inquiryUserPhone'),
-                        message: formData.get('inquiryUserMessage'),
-                    });
-                    alert('Inquiry submitted (check console)!');
-                    genericInquiryForm.reset(); 
-                    closeGenericModal();
-                });
-            }
-
-            // Agent Contact Modal (existing script)
+            // Page-specific functionality - Agent Contact System
+            
+            // Agent Contact Modal Logic
             const agentContactModal = document.getElementById('agentContactModal');
             const agentContactModalContent = document.getElementById('agentContactModalContent');
             const modalAgentName = document.getElementById('modalAgentName');
             const closeAgentModalBtn = document.getElementById('closeAgentModalBtn');
             const agentContactForm = document.getElementById('agentContactForm');
-            const sendAgentMessageBtn = document.getElementById('sendAgentMessageBtn');
             const contactAgentButtons = document.querySelectorAll('.contact-agent-btn');
 
-            function openModal() {
-                agentContactModal.classList.remove('hidden');
-                setTimeout(() => { // Allow display block to take effect before transition
-                    agentContactModal.classList.remove('opacity-0');
-                    agentContactModalContent.classList.remove('scale-95', 'opacity-0');
-                    agentContactModalContent.classList.add('scale-100', 'opacity-100');
-                }, 10);
+            function openModal(agentName) {
+                if (modalAgentName) modalAgentName.textContent = agentName;
+                if (agentContactModal && agentContactModalContent) {
+                    agentContactModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        agentContactModal.classList.remove('opacity-0');
+                        agentContactModalContent.classList.remove('scale-95', 'opacity-0');
+                        agentContactModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
             }
 
             function closeModal() {
-                agentContactModalContent.classList.remove('scale-100', 'opacity-100');
-                agentContactModalContent.classList.add('scale-95', 'opacity-0');
-                agentContactModal.classList.add('opacity-0');
-                setTimeout(() => {
-                    agentContactModal.classList.add('hidden');
-                }, 300); // Match transition duration
+                if (agentContactModal && agentContactModalContent) {
+                    agentContactModalContent.classList.remove('scale-100', 'opacity-100');
+                    agentContactModalContent.classList.add('scale-95', 'opacity-0');
+                    agentContactModal.classList.add('opacity-0');
+                    setTimeout(() => {
+                        agentContactModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
             }
 
             contactAgentButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const agentName = button.dataset.agentName || 'this Agent';
-                    if (modalAgentName) {
-                        modalAgentName.textContent = agentName;
-                    }
-                    openModal();
+                    openModal(agentName);
                 });
             });
 
-            if (closeAgentModalBtn) {
-                closeAgentModalBtn.addEventListener('click', closeModal);
-            }
-
-            // Close modal on overlay click
+            if (closeAgentModalBtn) closeAgentModalBtn.addEventListener('click', closeModal);
+            
             if (agentContactModal) {
-                agentContactModal.addEventListener('click', (event) => {
-                    if (event.target === agentContactModal) {
-                        closeModal();
-                    }
+                agentContactModal.addEventListener('click', (e) => {
+                    if (e.target === agentContactModal) closeModal();
                 });
             }
 
             if (agentContactForm) {
-                agentContactForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
+                agentContactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
                     const formData = new FormData(agentContactForm);
-                    const contactDetails = {
-                        agent: modalAgentName ? modalAgentName.textContent : 'Unknown Agent',
-                        name: formData.get('userName'),
+                    const contactData = {
+                        agentName: modalAgentName?.textContent || 'Unknown Agent',
+                        clientName: formData.get('userName'),
                         email: formData.get('userEmail'),
                         phone: formData.get('userPhone'),
                         message: formData.get('userMessage'),
+                        timestamp: new Date().toISOString()
                     };
-                    console.log('Contact Form Submitted:', contactDetails);
-                    alert('Message sent (check console)!'); // Replace with actual submission logic later
+                    
+                    console.log('Agent Contact Form Submitted:', contactData);
+                    window.ElevateRealty.showNotification('Your message has been sent to the agent!', 'success');
                     agentContactForm.reset();
                     closeModal();
                 });
             }
+
+            console.log('Agent Profiles page loaded successfully');
         });
     </script>
 </body>

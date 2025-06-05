@@ -9,6 +9,88 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Add any specific libraries for 3D viewers or image galleries if needed, e.g., Panellum, PhotoSwipe -->
+    <style>
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .lightbox-prev {
+            left: -60px;
+        }
+        
+        .lightbox-next {
+            right: -60px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .gallery-thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-thumbnail:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body class="bg-background text-text-primary">
     <!-- Navigation Header -->
@@ -112,19 +194,46 @@
                     <section id="property-media">
                         <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">Visual Showcase</h2>
                         <div class="card-elevated p-2">
-                            <div class="bg-gray-200 rounded-xl h-96 flex items-center justify-center text-text-secondary mb-4">
-                                <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop"
+                            <div class="bg-gray-200 rounded-xl h-96 flex items-center justify-center text-text-secondary mb-4 relative overflow-hidden">
+                                <img id="mainPropertyImage" 
+                                     src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop"
                                      alt="Main property view"
-                                     class="w-full h-full object-cover rounded-xl"
+                                     class="w-full h-full object-cover rounded-xl cursor-pointer gallery-thumbnail"
+                                     data-gallery-index="0"
                                      onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x800.png?text=Main+Image+Not+Available';">
+                                <div class="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                                    Click to view full size
+                                </div>
                             </div>
                             <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                                <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 1" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
-                                <img src="https://images.unsplash.com/photo-1600585153639-a3985a70030c?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 2" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
-                                <img src="https://images.unsplash.com/photo-1600573472591-4c66b69944e3?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 3" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
-                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 4" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
-                                <div class="bg-primary-50 rounded-lg h-24 flex items-center justify-center text-primary font-semibold cursor-pointer hover:bg-primary-100 transition-colors">
-                                    +12 more
+                                <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=200&auto=format&fit=crop" 
+                                     alt="Property exterior" 
+                                     class="w-full h-24 object-cover rounded-lg gallery-thumbnail" 
+                                     data-gallery-index="0"
+                                     data-full-src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop"
+                                     onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1600585153639-a3985a70030c?q=80&w=200&auto=format&fit=crop" 
+                                     alt="Living room" 
+                                     class="w-full h-24 object-cover rounded-lg gallery-thumbnail" 
+                                     data-gallery-index="1"
+                                     data-full-src="https://images.unsplash.com/photo-1600585153639-a3985a70030c?q=80&w=1200&auto=format&fit=crop"
+                                     onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1600573472591-4c66b69944e3?q=80&w=200&auto=format&fit=crop" 
+                                     alt="Kitchen" 
+                                     class="w-full h-24 object-cover rounded-lg gallery-thumbnail" 
+                                     data-gallery-index="2"
+                                     data-full-src="https://images.unsplash.com/photo-1600573472591-4c66b69944e3?q=80&w=1200&auto=format&fit=crop"
+                                     onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=200&auto=format&fit=crop" 
+                                     alt="Master bedroom" 
+                                     class="w-full h-24 object-cover rounded-lg gallery-thumbnail" 
+                                     data-gallery-index="3"
+                                     data-full-src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
+                                     onerror="this.style.display='none'">
+                                <div class="bg-primary-50 rounded-lg h-24 flex items-center justify-center text-primary font-semibold cursor-pointer hover:bg-primary-100 transition-colors gallery-thumbnail" 
+                                     data-gallery-index="4"
+                                     data-full-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop">
+                                    +8 more
                                 </div>
                             </div>
                         </div>
@@ -355,7 +464,7 @@
             </div>
             <div class="section-divider mb-8"></div>
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-primary-200 text-sm mb-4 md:mb-0">© 2024 Elevate Realty. All rights reserved.</p>
+                <p class="text-primary-200 text-sm mb-4 md:mb-0"> 2024 Elevate Realty. All rights reserved.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Privacy Policy</a>
                     <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Terms of Service</a>
@@ -364,29 +473,26 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        });
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+            <img id="lightboxImage" src="" alt="Property image">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+        </div>
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center">
+            <p id="lightboxCaption" class="text-lg font-medium mb-2"></p>
+            <p id="lightboxCounter" class="text-sm opacity-75"></p>
+        </div>
+    </div>
 
-        const mainImage = document.querySelector('#property-media img[alt="Main property view"]');
-        const thumbnails = document.querySelectorAll('#property-media img[alt^="Thumbnail"]');
-        
-        if (mainImage && thumbnails.length > 0) {
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    if (this.src && this.src !== mainImage.src) { // Check if src exists and is different
-                        let newSrc = this.src.replace('w=200', 'w=1200').replace('h=24', 'h=96'); // Adjust for potential size parameters
-                        mainImage.src = newSrc;
-                    }
-                });
-            });
-        }
-    </script>
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
     <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
     <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Global JavaScript -->
+    <script src="../assets/js/global.js"></script>
 
     <!-- Generic Inquiry Modal -->
     <div id="genericInquiryModal" class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
@@ -429,229 +535,148 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // User Authentication Links Management
-            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
-            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+            // Page-specific functionality - Property Detail Features
+            
+            // Enhanced Property Image Gallery with Lightbox
+            const galleryImages = [
+                {
+                    src: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop',
+                    alt: 'Property exterior',
+                    caption: 'Stunning exterior view of the Beverly Hills estate'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1600585153639-a3985a70030c?q=80&w=1200&auto=format&fit=crop',
+                    alt: 'Living room',
+                    caption: 'Spacious living room with floor-to-ceiling windows'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1600573472591-4c66b69944e3?q=80&w=1200&auto=format&fit=crop',
+                    alt: 'Kitchen',
+                    caption: 'Gourmet chef\'s kitchen with premium appliances'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop',
+                    alt: 'Master bedroom',
+                    caption: 'Luxurious master bedroom suite'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop',
+                    alt: 'Pool area',
+                    caption: 'Resort-style pool and outdoor entertainment area'
+                }
+            ];
 
-            function handleLogout() {
-                localStorage.removeItem('isUserLoggedIn');
-                localStorage.removeItem('loggedInUserEmail');
-                localStorage.removeItem('loggedInUserName');
-                alert('You have been logged out.');
-                updateAuthLinks();
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const mainImage = document.getElementById('mainPropertyImage');
+            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
-            function updateAuthLinks() {
-                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-                let desktopLinksHTML = '';
-                let mobileLinksHTML = '';
-
-                if (isLoggedIn) {
-                    desktopLinksHTML = `
-                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
-                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
-                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
-                    `;
-                } else {
-                    desktopLinksHTML = `
-                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
-                    `;
-                }
-
-                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
-                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
-
-                if (isLoggedIn) {
-                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
-                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
-                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
-                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
-                }
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
             }
-            updateAuthLinks();
 
-            // Generic Inquiry Modal Logic
-            const genericInquiryModal = document.getElementById('genericInquiryModal');
-            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
-            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
-            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
-            const genericInquiryForm = document.getElementById('genericInquiryForm');
-            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
+            function updateLightboxImage() {
+                const image = galleryImages[currentImageIndex];
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightboxCaption.textContent = image.caption;
+                lightboxCounter.textContent = `${currentImageIndex + 1} of ${galleryImages.length}`;
+            }
 
-            function openGenericModal(serviceType) {
-                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModal.classList.remove('hidden');
-                    setTimeout(() => { 
-                        genericInquiryModal.classList.remove('opacity-0');
-                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
-                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
-                    }, 10);
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                updateLightboxImage();
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateLightboxImage();
+            }
+
+            function updateMainImage(index) {
+                const image = galleryImages[index];
+                if (mainImage && image) {
+                    mainImage.src = image.src;
+                    mainImage.alt = image.alt;
                 }
             }
 
-            function closeGenericModal() {
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
-                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
-                    genericInquiryModal.classList.add('opacity-0');
-                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
-                }
-            }
-
-            openInquiryModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const serviceType = button.dataset.serviceType || 'General Inquiry';
-                    openGenericModal(serviceType);
+            // Event Listeners
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    const index = parseInt(thumbnail.dataset.galleryIndex) || 0;
+                    if (thumbnail.classList.contains('gallery-thumbnail')) {
+                        updateMainImage(index);
+                        openLightbox(index);
+                    }
                 });
             });
 
-            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
-            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
-                if (event.target === genericInquiryModal) closeGenericModal();
+            // Lightbox controls
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
+            if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                }
             });
 
-            if (genericInquiryForm) {
-                genericInquiryForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    const formData = new FormData(genericInquiryForm);
-                    console.log('Generic Inquiry Submitted:', {
-                        serviceRequested: formData.get('inquiryServiceName'),
-                        name: formData.get('inquiryUserName'),
-                        email: formData.get('inquiryUserEmail'),
-                        phone: formData.get('inquiryUserPhone'),
-                        message: formData.get('inquiryUserMessage'),
-                    });
-                    alert('Inquiry submitted (check console)!');
-                    genericInquiryForm.reset(); 
-                    closeGenericModal();
-                });
-            }
-
-            // --- Favorite Property Logic (Property Detail Page) ---
-            const favoriteDetailButton = document.querySelector('.favorite-btn'); // Specific to this page's button
-
-            function getFavorites() {
-                const userEmail = localStorage.getItem('loggedInUserEmail');
-                if (!userEmail) return [];
-                const favoritesKey = `favorites_${userEmail}`;
-                return JSON.parse(localStorage.getItem(favoritesKey)) || [];
-            }
-
-            function saveFavorites(favorites) {
-                const userEmail = localStorage.getItem('loggedInUserEmail');
-                if (!userEmail) return;
-                const favoritesKey = `favorites_${userEmail}`;
-                localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-            }
-
-            function toggleFavoriteDetail(propertyId, button) {
-                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-                if (!isLoggedIn) {
-                    alert('Please log in to save favorites.');
-                    // Optional: window.location.href = 'login.html';
-                    return;
+            // Close lightbox when clicking outside image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
                 }
+            });
 
-                let favorites = getFavorites();
-                const heartIcon = button.querySelector('.property-favorite-icon');
-                const buttonTextSpan = button.querySelector('.button-text');
-
-                if (favorites.includes(propertyId)) {
-                    favorites = favorites.filter(id => id !== propertyId);
-                    if (heartIcon) {
-                        heartIcon.style.fill = 'none';
-                        heartIcon.classList.remove('text-white'); // if it was filled
-                        heartIcon.classList.add('text-white'); // stroke color for outline
-                    }
-                    if (buttonTextSpan) buttonTextSpan.textContent = 'Save to Favorites';
-                    button.title = 'Add to Favorites';
-                } else {
-                    favorites.push(propertyId);
-                    if (heartIcon) {
-                        heartIcon.style.fill = 'currentColor'; // Fill with current text color (white)
-                        heartIcon.classList.add('text-white');
-                    }
-                    if (buttonTextSpan) buttonTextSpan.textContent = 'Saved to Favorites';
-                    button.title = 'Remove from Favorites';
-                }
-                saveFavorites(favorites);
-            }
-
-            function updateFavoriteDetailButtonState() {
-                if (!favoriteDetailButton) return;
-                const favorites = getFavorites();
-                const propertyId = favoriteDetailButton.dataset.propertyId;
-                const heartIcon = favoriteDetailButton.querySelector('.property-favorite-icon');
-                const buttonTextSpan = favoriteDetailButton.querySelector('.button-text');
-
-                if (favorites.includes(propertyId)) {
-                    if (heartIcon) {
-                        heartIcon.style.fill = 'currentColor';
-                        heartIcon.classList.add('text-white');
-                    }
-                    if (buttonTextSpan) buttonTextSpan.textContent = 'Saved to Favorites';
-                    favoriteDetailButton.title = 'Remove from Favorites';
-                } else {
-                    if (heartIcon) {
-                        heartIcon.style.fill = 'none';
-                        heartIcon.classList.add('text-white'); // Keep stroke white
-                    }
-                    if (buttonTextSpan) buttonTextSpan.textContent = 'Save to Favorites';
-                    favoriteDetailButton.title = 'Add to Favorites';
-                }
-            }
-
-            if (favoriteDetailButton) {
-                favoriteDetailButton.addEventListener('click', (e) => {
-                    const propertyId = favoriteDetailButton.dataset.propertyId;
-                    toggleFavoriteDetail(propertyId, favoriteDetailButton);
-                });
-                updateFavoriteDetailButtonState(); // Initial state update
-            }
-
-            // Property Specific Inquiry Form (existing script)
+            // Property Inquiry Form (specific to this property)
             const propertyInquiryForm = document.getElementById('propertyInquiryForm');
-
             if (propertyInquiryForm) {
-                propertyInquiryForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    
+                propertyInquiryForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
                     const formData = new FormData(propertyInquiryForm);
-                    const inquiryName = formData.get('name');
-                    const inquiryEmail = formData.get('email');
-                    const inquiryPhone = formData.get('phone');
-                    const inquiryMessage = formData.get('message');
-
-                    // Attempt to get property name from hero section title
-                    let propertyName = 'this property';
-                    const heroTitleElement = document.querySelector('.pt-24 h1'); // Adjust selector if needed
-                    if (heroTitleElement) {
-                        propertyName = heroTitleElement.textContent.trim() || propertyName;
-                    }
-
-                    const inquiryDetails = {
-                        property: propertyName,
-                        name: inquiryName,
-                        email: inquiryEmail,
-                        phone: inquiryPhone,
-                        message: inquiryMessage
+                    const inquiryData = {
+                        propertyId: 'Modern Beverly Hills Estate',
+                        name: formData.get('inquiryName'),
+                        email: formData.get('inquiryEmail'),
+                        phone: formData.get('inquiryPhone'),
+                        message: formData.get('inquiryMessage'),
+                        timestamp: new Date().toISOString()
                     };
-
-                    console.log('Property Inquiry Submitted:', inquiryDetails);
-                    alert('Thank you for your inquiry! An agent will contact you shortly. (Details logged to console)');
                     
+                    console.log('Property Inquiry Submitted:', inquiryData);
+                    window.ElevateRealty.showNotification('Your inquiry has been submitted! We\'ll contact you soon.', 'success');
                     propertyInquiryForm.reset();
                 });
             }
+
+            console.log('Property Detail page loaded successfully');
         });
     </script>
 </body>

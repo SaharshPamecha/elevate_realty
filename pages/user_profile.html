@@ -132,217 +132,11 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // User Authentication Links Management
-            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
-            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+    <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+    <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
 
-            function handleLogout() {
-                localStorage.removeItem('isUserLoggedIn');
-                localStorage.removeItem('loggedInUserEmail');
-                localStorage.removeItem('loggedInUserName');
-                alert('You have been logged out.');
-                updateAuthLinks();
-                // Redirect to login or homepage after logout from profile page
-                window.location.href = 'login.html'; 
-            }
-
-            function updateAuthLinks() {
-                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-                let desktopLinksHTML = '';
-                let mobileLinksHTML = '';
-
-                if (isLoggedIn) {
-                    desktopLinksHTML = `
-                        <a href="user_profile.html" class="text-sm text-primary font-medium border-b-2 border-primary pb-1">My Profile</a>
-                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="user_profile.html" class="block px-3 py-2 text-primary font-medium">My Profile</a>
-                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
-                    `;
-                } else {
-                    desktopLinksHTML = `
-                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
-                    `;
-                    mobileLinksHTML = `
-                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
-                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
-                    `;
-                }
-
-                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
-                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
-
-                // Add event listeners to newly created logout buttons
-                if (isLoggedIn) {
-                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
-                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
-                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
-                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
-                }
-            }
-            updateAuthLinks();
-
-            // Generic Inquiry Modal Logic
-            const genericInquiryModal = document.getElementById('genericInquiryModal');
-            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
-            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
-            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
-            const genericInquiryForm = document.getElementById('genericInquiryForm');
-            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
-
-            function openGenericModal(serviceType) {
-                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModal.classList.remove('hidden');
-                    setTimeout(() => { 
-                        genericInquiryModal.classList.remove('opacity-0');
-                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
-                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                }
-            }
-
-            function closeGenericModal() {
-                if (genericInquiryModal && genericInquiryModalContent) {
-                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
-                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
-                    genericInquiryModal.classList.add('opacity-0');
-                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
-                }
-            }
-
-            openInquiryModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const serviceType = button.dataset.serviceType || 'General Inquiry';
-                    openGenericModal(serviceType);
-                });
-            });
-
-            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
-            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
-                if (event.target === genericInquiryModal) closeGenericModal();
-            });
-
-            if (genericInquiryForm) {
-                genericInquiryForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    const formData = new FormData(genericInquiryForm);
-                    console.log('Generic Inquiry Submitted:', {
-                        serviceRequested: formData.get('inquiryServiceName'),
-                        name: formData.get('inquiryUserName'),
-                        email: formData.get('inquiryUserEmail'),
-                        phone: formData.get('inquiryUserPhone'),
-                        message: formData.get('inquiryUserMessage'),
-                    });
-                    alert('Inquiry submitted (check console)!');
-                    genericInquiryForm.reset(); 
-                    closeGenericModal();
-                });
-            }
-
-            // Mobile Menu Toggle (from original header, if needed for this page)
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // --- Favorite Properties Display & Management ---
-            const favoritePropertiesContainer = document.getElementById('favoritePropertiesContainer');
-
-            function getFavorites() {
-                const userEmail = localStorage.getItem('loggedInUserEmail');
-                if (!userEmail) return [];
-                const favoritesKey = `favorites_${userEmail}`;
-                return JSON.parse(localStorage.getItem(favoritesKey)) || [];
-            }
-
-            function saveFavorites(favorites) {
-                const userEmail = localStorage.getItem('loggedInUserEmail');
-                if (!userEmail) return;
-                const favoritesKey = `favorites_${userEmail}`;
-                localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-            }
-
-            function removeFromFavorites(propertyId) {
-                let favorites = getFavorites();
-                favorites = favorites.filter(id => id !== propertyId);
-                saveFavorites(favorites);
-                renderFavoriteProperties(); // Re-render the list
-            }
-
-            function renderFavoriteProperties() {
-                if (!favoritePropertiesContainer) return;
-                const favorites = getFavorites();
-                favoritePropertiesContainer.innerHTML = ''; // Clear existing items
-
-                if (favorites.length === 0) {
-                    favoritePropertiesContainer.innerHTML = '<p class="text-text-secondary italic">You have no saved favorite properties yet.</p>';
-                    return;
-                }
-
-                const ul = document.createElement('ul');
-                ul.className = 'space-y-4';
-                favorites.forEach(propertyId => {
-                    const li = document.createElement('li');
-                    li.className = 'p-4 bg-white border border-border-light rounded-lg shadow-sm flex justify-between items-center';
-                    
-                    const propertyName = document.createElement('span');
-                    propertyName.textContent = propertyId; // Displaying the ID which contains name and price
-                    propertyName.className = 'text-text-primary';
-
-                    const removeBtn = document.createElement('button');
-                    removeBtn.textContent = 'Remove';
-                    removeBtn.className = 'btn-secondary-outline text-sm px-3 py-1.5 hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors';
-                    removeBtn.onclick = () => removeFromFavorites(propertyId);
-
-                    li.appendChild(propertyName);
-                    li.appendChild(removeBtn);
-                    ul.appendChild(li);
-                });
-                favoritePropertiesContainer.appendChild(ul);
-            }
-
-            // Initial rendering of favorite properties
-            if (localStorage.getItem('isUserLoggedIn') === 'true') {
-                 renderFavoriteProperties();
-            }
-            
-            // Display user info (existing script)
-            const loggedInUserEmail = localStorage.getItem('loggedInUserEmail');
-            const loggedInUserName = localStorage.getItem('loggedInUserName');
-            const profileUserEmailEl = document.getElementById('profileUserEmail');
-            const profileUserNameEl = document.getElementById('profileUserName');
-
-            if (profileUserEmailEl) {
-                profileUserEmailEl.textContent = loggedInUserEmail || 'Not logged in';
-            }
-            if (profileUserNameEl) {
-                profileUserNameEl.textContent = loggedInUserName || '-';
-            }
-
-            // Placeholder for displaying favorite properties and saved searches
-            // This will be expanded in later steps
-
-            // Update copyright year
-            const currentYearEl = document.getElementById('currentYear');
-            if (currentYearEl) {
-                currentYearEl.textContent = new Date().getFullYear();
-            }
-        });
-        // Basic script to redirect if not logged in (can be enhanced)
-        if (!localStorage.getItem('isUserLoggedIn')) {
-            alert('Please log in to view your profile.');
-            window.location.href = 'login.html'; // Redirect immediately if not logged in
-        }
-    </script>
-    <!-- Placeholder for global.js or similar for dynamic header -->
+    <!-- Global JavaScript -->
+    <script src="../assets/js/global.js"></script>
 
     <!-- Generic Inquiry Modal -->
     <div id="genericInquiryModal" class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
@@ -383,5 +177,83 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Page-specific functionality - User Profile Management
+            
+            // Check if user is logged in
+            const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+            if (!isLoggedIn) {
+                window.ElevateRealty.showNotification('Please log in to access your profile.', 'warning');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+                return;
+            }
+
+            // Display user information
+            const loggedInUserEmail = localStorage.getItem('loggedInUserEmail');
+            const loggedInUserName = localStorage.getItem('loggedInUserName');
+            
+            if (loggedInUserEmail) {
+                const emailElements = document.querySelectorAll('.user-email');
+                emailElements.forEach(el => el.textContent = loggedInUserEmail);
+            }
+            
+            if (loggedInUserName) {
+                const nameElements = document.querySelectorAll('.user-name');
+                nameElements.forEach(el => el.textContent = loggedInUserName);
+            }
+
+            // Favorite Properties Management
+            const favoritePropertiesContainer = document.getElementById('favoritePropertiesContainer');
+
+            function renderFavoriteProperties() {
+                if (!favoritePropertiesContainer) return;
+                
+                const favorites = window.ElevateRealty.getFavorites();
+                favoritePropertiesContainer.innerHTML = '';
+
+                if (favorites.length === 0) {
+                    favoritePropertiesContainer.innerHTML = '<p class="text-text-secondary italic">You have no saved favorite properties yet.</p>';
+                    return;
+                }
+
+                const ul = document.createElement('ul');
+                ul.className = 'space-y-4';
+                
+                favorites.forEach(propertyId => {
+                    const li = document.createElement('li');
+                    li.className = 'p-4 bg-white border border-border-light rounded-lg shadow-sm flex justify-between items-center';
+                    
+                    const propertyName = document.createElement('span');
+                    propertyName.textContent = propertyId;
+                    propertyName.className = 'text-text-primary';
+
+                    const removeBtn = document.createElement('button');
+                    removeBtn.textContent = 'Remove';
+                    removeBtn.className = 'btn-secondary-outline text-sm px-3 py-1.5 hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors';
+                    removeBtn.onclick = () => {
+                        let favorites = window.ElevateRealty.getFavorites();
+                        favorites = favorites.filter(id => id !== propertyId);
+                        window.ElevateRealty.saveFavorites(favorites);
+                        renderFavoriteProperties();
+                        window.ElevateRealty.showNotification('Property removed from favorites.', 'info');
+                    };
+
+                    li.appendChild(propertyName);
+                    li.appendChild(removeBtn);
+                    ul.appendChild(li);
+                });
+                
+                favoritePropertiesContainer.appendChild(ul);
+            }
+
+            renderFavoriteProperties();
+
+            console.log('User Profile page loaded successfully');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>
