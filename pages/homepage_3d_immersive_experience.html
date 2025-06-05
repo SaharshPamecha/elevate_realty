@@ -37,18 +37,34 @@
                     <a href="about_elevate_experience.html" class="text-text-secondary hover:text-primary transition-smooth">About</a>
                 </div>
 
-                <!-- CTA Buttons -->
+                <!-- CTA Buttons & Auth Links -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <button class="btn-secondary text-sm px-4 py-2">Schedule Tour</button>
-                    <button class="btn-primary text-sm px-4 py-2">VIP Consultation</button>
+                    <div id="userAuthDesktopLinks" class="flex items-center space-x-4"></div>
+                    <button class="btn-secondary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                    <button class="btn-primary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 text-text-secondary hover:text-primary">
+                <button class="lg:hidden p-2 text-text-secondary hover:text-primary" id="mobileMenuBtn">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden bg-surface border-t border-border-light" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2 px-3">
+                    <a href="homepage_3d_immersive_experience.html" class="block px-3 py-2 text-primary font-medium">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Agents</a>
+                    <a href="about_elevate_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">About</a>
+                    <div id="userAuthMobileLinks" class="space-y-2 mb-2 pb-2 border-b border-border-light"></div>
+                    <div class="pt-4 space-y-2 border-t border-border-light mt-2">
+                        <button class="btn-secondary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                        <button class="btn-primary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -175,11 +191,11 @@
                         <div class="absolute top-4 left-4 bg-accent text-primary px-3 py-1 rounded-full text-sm font-medium">
                             New Listing
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="favorite-btn absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full text-gray-400 hover:text-red-500 transition-colors" data-property-id="Modern Luxury Home in Beverly Hills - $2,850,000" title="Add to Favorites">
+                            <svg class="w-5 h-5 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                             </svg>
-                        </div>
+                        </button>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -221,11 +237,11 @@
                         <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
                             Featured
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                            <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        <button class="favorite-btn absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full text-gray-400 hover:text-red-500 transition-colors" data-property-id="Manhattan Luxury Penthouse - $1,500,000" title="Add to Favorites">
+                            <svg class="w-5 h-5 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                             </svg>
-                        </div>
+                        </button>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -264,14 +280,14 @@
                              alt="Miami Beach villa" 
                              class="w-full h-64 object-cover group-hover:scale-110 transition-cinematic"
                              onerror="this.src='https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
-                        <div class="absolute top-4 left-4 bg-warning text-white px-3 py-1 rounded-full text-sm font-medium">
-                            Hot Deal
+                        <div class="absolute top-4 left-4 bg-primary-100 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                            Exclusive Access
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="favorite-btn absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full text-gray-400 hover:text-red-500 transition-colors" data-property-id="Miami Beach Oceanfront Villa - $4,200,000" title="Add to Favorites">
+                            <svg class="w-5 h-5 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                             </svg>
-                        </div>
+                        </button>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
@@ -787,7 +803,7 @@
                         <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Property Search</a></li>
                         <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analytics</a></li>
                         <li><a href="agent_profiles_expertise_showcase.html" class="text-primary-200 hover:text-accent transition-smooth">Our Agents</a></li>
-                        <li><a href="individual_property_showcase_cinematic_tours.html" class="text-primary-200 hover:text-accent transition-smooth">3D Tours</a></li>
+                        <li><a href="property_detail_template.html" class="text-primary-200 hover:text-accent transition-smooth">3D Tours / Property Details</a></li>
                         <li><a href="about_elevate_experience.html" class="text-primary-200 hover:text-accent transition-smooth">About Us</a></li>
                     </ul>
                 </div>
@@ -796,10 +812,10 @@
                 <div>
                     <h4 class="text-lg font-montserrat font-semibold mb-6">Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
+                        <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
                         <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Property Management</a></li>
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
                         <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Concierge Services</a></li>
                     </ul>
                 </div>
@@ -843,8 +859,265 @@
             </div>
         </div>
     </footer>
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
 <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Generic Inquiry Modal -->
+    <div id="genericInquiryModal" class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="genericInquiryModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-montserrat font-semibold text-primary">Inquiry Form</h2>
+                <button id="closeGenericInquiryModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="genericInquiryForm">
+                <div class="space-y-4">
+                    <div>
+                        <label for="inquiryServiceName" class="block text-sm font-medium text-text-secondary mb-1">Service Requested</label>
+                        <input type="text" id="inquiryServiceName" name="inquiryServiceName" readonly class="input-field w-full bg-gray-100 cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label for="inquiryUserName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
+                        <input type="text" id="inquiryUserName" name="inquiryUserName" required class="input-field w-full" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="inquiryUserEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                        <input type="email" id="inquiryUserEmail" name="inquiryUserEmail" required class="input-field w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="inquiryUserPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
+                        <input type="tel" id="inquiryUserPhone" name="inquiryUserPhone" class="input-field w-full" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label for="inquiryUserMessage" class="block text-sm font-medium text-text-secondary mb-1">Additional Details/Message</label>
+                        <textarea id="inquiryUserMessage" name="inquiryUserMessage" rows="3" class="input-field w-full" placeholder="Any specific requests or questions?"></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-right">
+                    <button type="submit" id="sendGenericInquiryBtn" class="btn-primary px-8 py-3">Submit Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // User Authentication Links Management
+            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
+            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+
+            function handleLogout() {
+                localStorage.removeItem('isUserLoggedIn');
+                localStorage.removeItem('loggedInUserEmail');
+                localStorage.removeItem('loggedInUserName');
+                alert('You have been logged out.');
+                updateAuthLinks();
+                // Optional: redirect to homepage or login page
+                // window.location.href = 'homepage_3d_immersive_experience.html'; 
+            }
+
+            function updateAuthLinks() {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                let desktopLinksHTML = '';
+                let mobileLinksHTML = '';
+
+                if (isLoggedIn) {
+                    desktopLinksHTML = `
+                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
+                    `;
+                } else {
+                    desktopLinksHTML = `
+                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
+                    `;
+                }
+
+                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
+                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
+
+                // Add event listeners to newly created logout buttons
+                if (isLoggedIn) {
+                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
+                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
+                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
+                }
+            }
+
+            updateAuthLinks(); // Initial call to set links based on login state
+
+            // --- Favorite Properties Logic ---
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+            function getFavorites() {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return [];
+                const favoritesKey = `favorites_${userEmail}`;
+                return JSON.parse(localStorage.getItem(favoritesKey)) || [];
+            }
+
+            function saveFavorites(favorites) {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return;
+                const favoritesKey = `favorites_${userEmail}`;
+                localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+            }
+
+            function toggleFavorite(propertyId, button) {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                if (!isLoggedIn) {
+                    alert('Please log in to save favorites.');
+                    // Optional: window.location.href = 'login.html';
+                    return;
+                }
+
+                let favorites = getFavorites();
+                const heartIcon = button.querySelector('.property-favorite-icon');
+
+                if (favorites.includes(propertyId)) {
+                    favorites = favorites.filter(id => id !== propertyId);
+                    if (heartIcon) {
+                        heartIcon.classList.remove('text-red-500', 'fill-red-500');
+                        heartIcon.classList.add('text-gray-400');
+                        heartIcon.style.fill = 'none';
+                    }
+                    button.title = 'Add to Favorites';
+                } else {
+                    favorites.push(propertyId);
+                    if (heartIcon) {
+                        heartIcon.classList.remove('text-gray-400');
+                        heartIcon.classList.add('text-red-500', 'fill-red-500');
+                    }
+                    button.title = 'Remove from Favorites';
+                }
+                saveFavorites(favorites);
+            }
+
+            function updateFavoriteButtonStates() {
+                const favorites = getFavorites();
+                favoriteButtons.forEach(button => {
+                    const propertyId = button.dataset.propertyId;
+                    const heartIcon = button.querySelector('.property-favorite-icon');
+                    if (favorites.includes(propertyId)) {
+                        if (heartIcon) {
+                            heartIcon.classList.remove('text-gray-400');
+                            heartIcon.classList.add('text-red-500', 'fill-red-500');
+                        }
+                        button.title = 'Remove from Favorites';
+                    } else {
+                        if (heartIcon) {
+                            heartIcon.classList.remove('text-red-500', 'fill-red-500');
+                            heartIcon.classList.add('text-gray-400');
+                            heartIcon.style.fill = 'none';
+                        }
+                        button.title = 'Add to Favorites';
+                    }
+                });
+            }
+
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click if any
+                    const propertyId = button.dataset.propertyId;
+                    toggleFavorite(propertyId, button);
+                });
+            });
+
+            updateFavoriteButtonStates(); // Initial state update on page load
+
+            // Generic Inquiry Modal Logic (existing script starts below)
+            const genericInquiryModal = document.getElementById('genericInquiryModal');
+            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
+            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
+            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
+            const genericInquiryForm = document.getElementById('genericInquiryForm');
+            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
+
+            function openGenericModal(serviceType) {
+                if (inquiryServiceNameInput) {
+                    inquiryServiceNameInput.value = serviceType;
+                }
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModal.classList.remove('hidden');
+                    setTimeout(() => { 
+                        genericInquiryModal.classList.remove('opacity-0');
+                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
+                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
+            }
+
+            function closeGenericModal() {
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
+                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
+                    genericInquiryModal.classList.add('opacity-0');
+                    setTimeout(() => {
+                        genericInquiryModal.classList.add('hidden');
+                    }, 300); 
+                }
+            }
+
+            openInquiryModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const serviceType = button.dataset.serviceType || 'General Inquiry';
+                    openGenericModal(serviceType);
+                });
+            });
+
+            if (closeGenericInquiryModalBtn) {
+                closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
+            }
+
+            if (genericInquiryModal) {
+                genericInquiryModal.addEventListener('click', (event) => {
+                    if (event.target === genericInquiryModal) {
+                        closeGenericModal();
+                    }
+                });
+            }
+
+            if (genericInquiryForm) {
+                genericInquiryForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(genericInquiryForm);
+                    const inquiryDetails = {
+                        serviceRequested: formData.get('inquiryServiceName'),
+                        name: formData.get('inquiryUserName'),
+                        email: formData.get('inquiryUserEmail'),
+                        phone: formData.get('inquiryUserPhone'),
+                        message: formData.get('inquiryUserMessage'),
+                    };
+                    console.log('Generic Inquiry Submitted:', inquiryDetails);
+                    alert('Inquiry submitted (check console)! An Elevate Realty representative will contact you shortly.');
+                    genericInquiryForm.reset(); 
+                    // inquiryServiceNameInput.value = ''; // Optionally clear service name too
+                    closeGenericModal();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

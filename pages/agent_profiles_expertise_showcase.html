@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Profiles - Expertise Showcase | Elevate Realty</title>
+    <meta name="description" content="Meet our team of elite real estate professionals. Discover expert agents specializing in luxury properties, market analysis, and client success.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-b border-border-light">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.09-.87 2-1.76 2.71-2.71-.95-.65-1.71-1.57-1.71-2.29 0-.72.76-1.64 1.71-2.29C14.16 17 18 12.55 18 7L12 2z"/>
+                            <path d="M12 4.5L6 8v7c0 3.61 2.46 6.5 6 7.5 3.54-1 6-3.89 6-7.5V8l-6-3.5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-montserrat font-semibold text-primary">Elevate Realty</h1>
+                        <p class="text-xs text-text-secondary">Premium Real Estate</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_3d_immersive_experience.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="text-primary font-medium border-b-2 border-primary pb-1">Agents</a>
+                    <a href="about_elevate_experience.html" class="text-text-secondary hover:text-primary transition-smooth">About</a>
+                </div>
+
+                <!-- CTA Buttons & Auth Links -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div id="userAuthDesktopLinks" class="flex items-center space-x-4"></div>
+                    <button class="btn-secondary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                    <button class="btn-primary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 text-text-secondary hover:text-primary" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="homepage_3d_immersive_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="block px-3 py-2 text-primary font-medium">Agents</a>
+                    <a href="about_elevate_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">About</a>
+                    <div id="userAuthMobileLinks" class="space-y-2 mb-2 pb-2 border-b border-border-light"></div>
+                    <div class="pt-4 space-y-2">
+                        <button class="btn-secondary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                        <button class="btn-primary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-16 bg-gradient-to-br from-primary-50 to-accent-50">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-montserrat font-semibold text-primary mb-6">
+                    Meet Our <span class="text-gradient-accent">Elite Agents</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary mb-8">
+                    Connecting you with unparalleled expertise and dedication in luxury real estate.
+                </p>
+                <div class="max-w-2xl mx-auto">
+                    <input type="text" placeholder="Search agents by name, specialty, or region..." class="input-field w-full p-4 text-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Grid Section -->
+    <section class="py-20 bg-surface">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <h2 class="text-3xl font-montserrat font-semibold text-primary mb-4 md:mb-0">Featured Agents</h2>
+                <div class="flex space-x-4">
+                    <select class="input-field">
+                        <option>Filter by Specialty</option>
+                        <option>Luxury Condos</option>
+                        <option>Waterfront Properties</option>
+                        <option>Investment Properties</option>
+                        <option>Historic Estates</option>
+                    </select>
+                    <select class="input-field">
+                        <option>Sort by</option>
+                        <option>Experience</option>
+                        <option>Sales Volume</option>
+                        <option>Client Rating</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Agent Card 1 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent Olivia Sterling" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-xs font-semibold">Top Producer</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">Olivia Sterling</h3>
+                        <p class="text-sm text-text-secondary mb-3">Senior Luxury Advisor</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            Olivia brings over 15 years of experience in high-value transactions, specializing in Beverly Hills and Malibu estates. Her clients praise her negotiation skills and market insight.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 15+ Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★★ (120 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full contact-agent-btn" data-agent-name="Olivia Sterling">Contact Agent</button>
+                    </div>
+                </div>
+
+                <!-- Agent Card 2 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1590086782792-42dd24506750?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent Marcus Thorne" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                         <div class="absolute top-4 right-4 bg-success-100 text-success-700 px-3 py-1 rounded-full text-xs font-semibold">Rising Star</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">Marcus Thorne</h3>
+                        <p class="text-sm text-text-secondary mb-3">Downtown Specialist</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            Marcus has a keen eye for emerging luxury markets in downtown cores. His data-driven approach helps investors maximize their returns.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 5 Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★☆ (45 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full contact-agent-btn" data-agent-name="Marcus Thorne">Contact Agent</button>
+                    </div>
+                </div>
+
+                <!-- Agent Card 3 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1530785601000-493850907686?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent Isabella Rossi" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">Isabella Rossi</h3>
+                        <p class="text-sm text-text-secondary mb-3">International Clientele Expert</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            Fluent in three languages, Isabella excels at connecting international buyers with exclusive U.S. properties. Her global network is unparalleled.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 10 Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★★ (98 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full contact-agent-btn" data-agent-name="Julian Vance">Contact Agent</button>
+                    </div>
+                </div>
+                 <!-- Agent Card 4 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1610632380031-5ba665729997?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent Julian Vance" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-primary-100 text-primary px-3 py-1 rounded-full text-xs font-semibold">Tech Savvy</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">Julian Vance</h3>
+                        <p class="text-sm text-text-secondary mb-3">Smart Home & New Developments</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            Julian is at the forefront of smart home technology and new luxury developments. He connects clients with the future of living.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 7 Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★☆ (60 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full">View Profile</button>
+                    </div>
+                </div>
+
+                <!-- Agent Card 5 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1542740348-39501cd6e2b4?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent Sophia Chen" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">Sophia Chen</h3>
+                        <p class="text-sm text-text-secondary mb-3">Architectural Specialist</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            With a background in architecture, Sophia offers unique insights into design and property potential, matching clients with architecturally significant homes.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 8 Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★★ (75 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full">View Profile</button>
+                    </div>
+                </div>
+
+                <!-- Agent Card 6 -->
+                <div class="card-elevated group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                             alt="Agent David Miller" 
+                             class="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-4 right-4 bg-secondary-100 text-secondary-700 px-3 py-1 rounded-full text-xs font-semibold">Commercial Expert</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-1">David Miller</h3>
+                        <p class="text-sm text-text-secondary mb-3">Luxury Commercial & Investment</p>
+                        <p class="text-sm text-text-secondary mb-4">
+                            David focuses on high-end commercial real estate and large-scale investment opportunities, guiding businesses and investors.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-text-secondary">Experience: 12 Years</span>
+                            <span class="text-xs text-accent font-semibold">★★★★☆ (82 Reviews)</span>
+                        </div>
+                        <button class="btn-primary w-full">View Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-16 flex justify-center">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 text-text-secondary bg-primary-50 rounded-lg hover:bg-primary-100 transition-smooth">Previous</a>
+                    <a href="#" class="px-4 py-2 text-white bg-primary rounded-lg">1</a>
+                    <a href="#" class="px-4 py-2 text-text-secondary hover:bg-primary-100 rounded-lg transition-smooth">2</a>
+                    <a href="#" class="px-4 py-2 text-text-secondary hover:bg-primary-100 rounded-lg transition-smooth">3</a>
+                    <span class="px-4 py-2 text-text-secondary">...</span>
+                    <a href="#" class="px-4 py-2 text-text-secondary hover:bg-primary-100 rounded-lg transition-smooth">10</a>
+                    <a href="#" class="px-4 py-2 text-text-secondary bg-primary-50 rounded-lg hover:bg-primary-100 transition-smooth">Next</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Agents Section -->
+    <section class="py-20 bg-primary-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-montserrat font-semibold text-primary mb-4">Why Partner with an Elevate Agent?</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Our agents are more than just brokers; they are trusted advisors, market experts, and dedicated partners in your luxury real estate journey.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold text-primary mb-3">Unrivaled Local Expertise</h3>
+                    <p class="text-text-secondary">Deep understanding of micro-markets, off-market opportunities, and neighborhood nuances.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold text-primary mb-3">Global Network Access</h3>
+                    <p class="text-text-secondary">Connections to a worldwide network of buyers, sellers, and luxury affiliates.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-semibold text-primary mb-3">Data-Driven Strategies</h3>
+                    <p class="text-text-secondary">Utilizing advanced analytics and market intelligence for informed decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.09-.87 2-1.76 2.71-2.71-.95-.65-1.71-1.57-1.71-2.29 0-.72.76-1.64 1.71-2.29C14.16 17 18 12.55 18 7L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-semibold">Elevate Realty</h3>
+                            <p class="text-sm text-primary-200">Premium Real Estate</p>
+                        </div>
+                    </div>
+                    <p class="text-primary-200 mb-4">Where luxury meets intelligence in real estate innovation.</p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Property Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Reports</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Investment Guide</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Neighborhood Insights</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Luxury Lifestyle</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-primary-200">1234 Luxury Avenue<br>Beverly Hills, CA 90210</p>
+                        <p class="text-primary-200">+1 (555) 123-4567</p>
+                        <p class="text-primary-200">hello@elevaterealty.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider mb-8"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm mb-4 md:mb-0">© 2024 Elevate Realty. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Privacy Policy</a>
+                    <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+    <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Agent Contact Modal -->
+    <div id="agentContactModal" class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="agentContactModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-montserrat font-semibold text-primary">Contact <span id="modalAgentName" class="text-accent">Agent</span></h2>
+                <button id="closeAgentModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="agentContactForm">
+                <div class="space-y-4">
+                    <div>
+                        <label for="userName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
+                        <input type="text" id="userName" name="userName" required class="input-field w-full" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="userEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                        <input type="email" id="userEmail" name="userEmail" required class="input-field w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="userPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
+                        <input type="tel" id="userPhone" name="userPhone" class="input-field w-full" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label for="userMessage" class="block text-sm font-medium text-text-secondary mb-1">Message</label>
+                        <textarea id="userMessage" name="userMessage" rows="4" required class="input-field w-full" placeholder="Your inquiry about properties, availability, etc."></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-right">
+                    <button type="submit" id="sendAgentMessageBtn" class="btn-primary px-8 py-3">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Generic Inquiry Modal -->
+    <div id="genericInquiryModal" class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="genericInquiryModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-montserrat font-semibold text-primary">Inquiry Form</h2>
+                <button id="closeGenericInquiryModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="genericInquiryForm">
+                <div class="space-y-4">
+                    <div>
+                        <label for="inquiryServiceName" class="block text-sm font-medium text-text-secondary mb-1">Service Requested</label>
+                        <input type="text" id="inquiryServiceName" name="inquiryServiceName" readonly class="input-field w-full bg-gray-100 cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label for="inquiryUserName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
+                        <input type="text" id="inquiryUserName" name="inquiryUserName" required class="input-field w-full" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="inquiryUserEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                        <input type="email" id="inquiryUserEmail" name="inquiryUserEmail" required class="input-field w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="inquiryUserPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
+                        <input type="tel" id="inquiryUserPhone" name="inquiryUserPhone" class="input-field w-full" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label for="inquiryUserMessage" class="block text-sm font-medium text-text-secondary mb-1">Additional Details/Message</label>
+                        <textarea id="inquiryUserMessage" name="inquiryUserMessage" rows="3" class="input-field w-full" placeholder="Any specific requests or questions?"></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-right">
+                    <button type="submit" id="sendGenericInquiryBtn" class="btn-primary px-8 py-3">Submit Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // User Authentication Links Management
+            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
+            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+
+            function handleLogout() {
+                localStorage.removeItem('isUserLoggedIn');
+                localStorage.removeItem('loggedInUserEmail');
+                localStorage.removeItem('loggedInUserName');
+                alert('You have been logged out.');
+                updateAuthLinks();
+            }
+
+            function updateAuthLinks() {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                let desktopLinksHTML = '';
+                let mobileLinksHTML = '';
+
+                if (isLoggedIn) {
+                    desktopLinksHTML = `
+                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
+                    `;
+                } else {
+                    desktopLinksHTML = `
+                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
+                    `;
+                }
+
+                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
+                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
+
+                if (isLoggedIn) {
+                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
+                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
+                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
+                }
+            }
+            updateAuthLinks();
+
+            // Generic Inquiry Modal Logic
+            const genericInquiryModal = document.getElementById('genericInquiryModal');
+            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
+            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
+            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
+            const genericInquiryForm = document.getElementById('genericInquiryForm');
+            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
+
+            function openGenericModal(serviceType) {
+                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModal.classList.remove('hidden');
+                    setTimeout(() => { 
+                        genericInquiryModal.classList.remove('opacity-0');
+                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
+                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
+            }
+
+            function closeGenericModal() {
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
+                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
+                    genericInquiryModal.classList.add('opacity-0');
+                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
+                }
+            }
+
+            openInquiryModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const serviceType = button.dataset.serviceType || 'General Inquiry';
+                    openGenericModal(serviceType);
+                });
+            });
+
+            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
+            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
+                if (event.target === genericInquiryModal) closeGenericModal();
+            });
+
+            if (genericInquiryForm) {
+                genericInquiryForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(genericInquiryForm);
+                    console.log('Generic Inquiry Submitted:', {
+                        serviceRequested: formData.get('inquiryServiceName'),
+                        name: formData.get('inquiryUserName'),
+                        email: formData.get('inquiryUserEmail'),
+                        phone: formData.get('inquiryUserPhone'),
+                        message: formData.get('inquiryUserMessage'),
+                    });
+                    alert('Inquiry submitted (check console)!');
+                    genericInquiryForm.reset(); 
+                    closeGenericModal();
+                });
+            }
+
+            // Agent Contact Modal (existing script)
+            const agentContactModal = document.getElementById('agentContactModal');
+            const agentContactModalContent = document.getElementById('agentContactModalContent');
+            const modalAgentName = document.getElementById('modalAgentName');
+            const closeAgentModalBtn = document.getElementById('closeAgentModalBtn');
+            const agentContactForm = document.getElementById('agentContactForm');
+            const sendAgentMessageBtn = document.getElementById('sendAgentMessageBtn');
+            const contactAgentButtons = document.querySelectorAll('.contact-agent-btn');
+
+            function openModal() {
+                agentContactModal.classList.remove('hidden');
+                setTimeout(() => { // Allow display block to take effect before transition
+                    agentContactModal.classList.remove('opacity-0');
+                    agentContactModalContent.classList.remove('scale-95', 'opacity-0');
+                    agentContactModalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+
+            function closeModal() {
+                agentContactModalContent.classList.remove('scale-100', 'opacity-100');
+                agentContactModalContent.classList.add('scale-95', 'opacity-0');
+                agentContactModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    agentContactModal.classList.add('hidden');
+                }, 300); // Match transition duration
+            }
+
+            contactAgentButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const agentName = button.dataset.agentName || 'this Agent';
+                    if (modalAgentName) {
+                        modalAgentName.textContent = agentName;
+                    }
+                    openModal();
+                });
+            });
+
+            if (closeAgentModalBtn) {
+                closeAgentModalBtn.addEventListener('click', closeModal);
+            }
+
+            // Close modal on overlay click
+            if (agentContactModal) {
+                agentContactModal.addEventListener('click', (event) => {
+                    if (event.target === agentContactModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            if (agentContactForm) {
+                agentContactForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(agentContactForm);
+                    const contactDetails = {
+                        agent: modalAgentName ? modalAgentName.textContent : 'Unknown Agent',
+                        name: formData.get('userName'),
+                        email: formData.get('userEmail'),
+                        phone: formData.get('userPhone'),
+                        message: formData.get('userMessage'),
+                    };
+                    console.log('Contact Form Submitted:', contactDetails);
+                    alert('Message sent (check console)!'); // Replace with actual submission logic later
+                    agentContactForm.reset();
+                    closeModal();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

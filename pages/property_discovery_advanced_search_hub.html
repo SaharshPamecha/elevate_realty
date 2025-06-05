@@ -37,18 +37,34 @@
                     <a href="about_elevate_experience.html" class="text-text-secondary hover:text-primary transition-smooth">About</a>
                 </div>
 
-                <!-- CTA Buttons -->
+                <!-- CTA Buttons & Auth Links -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <button class="btn-secondary text-sm px-4 py-2">Schedule Tour</button>
-                    <button class="btn-primary text-sm px-4 py-2">VIP Consultation</button>
+                    <div id="userAuthDesktopLinks" class="flex items-center space-x-4"></div>
+                    <button class="btn-secondary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                    <button class="btn-primary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 text-text-secondary hover:text-primary">
+                <button class="lg:hidden p-2 text-text-secondary hover:text-primary" id="mobileMenuBtn">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden bg-surface border-t border-border-light" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2 px-3">
+                    <a href="homepage_3d_immersive_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="block px-3 py-2 text-primary font-medium">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Agents</a>
+                    <a href="about_elevate_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">About</a>
+                    <div id="userAuthMobileLinks" class="space-y-2 mb-2 pb-2 border-b border-border-light"></div>
+                    <div class="pt-4 space-y-2 border-t border-border-light mt-2">
+                        <button class="btn-secondary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                        <button class="btn-primary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -72,10 +88,10 @@
                         <!-- Search Mode Toggle -->
                         <div class="flex justify-center mb-8">
                             <div class="bg-primary-50 rounded-xl p-1 flex">
-                                <button class="px-6 py-3 rounded-lg bg-primary text-white font-medium transition-smooth">
+                                <button id="dreamerModeBtn" class="px-6 py-3 rounded-lg bg-primary text-white font-medium transition-smooth">
                                     Dreamer Mode
                                 </button>
-                                <button class="px-6 py-3 rounded-lg text-primary hover:bg-primary-100 font-medium transition-smooth">
+                                <button id="investorModeBtn" class="px-6 py-3 rounded-lg text-primary hover:bg-primary-100 font-medium transition-smooth">
                                     Investor Mode
                                 </button>
                             </div>
@@ -88,7 +104,7 @@
                                     <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
-                                    <input type="text" 
+                                    <input type="text" id="mainSearchInput" 
                                            placeholder="Search by location, property type, or lifestyle..." 
                                            class="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary">
                                     <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
@@ -99,7 +115,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <button class="ml-4 btn-primary px-8 py-4 text-lg">
+                                <button id="searchPropertiesBtn" class="ml-4 btn-primary px-8 py-4 text-lg">
                                     Search Properties
                                 </button>
                             </div>
@@ -107,28 +123,28 @@
 
                         <!-- Quick Filters -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                            <select class="input-field">
+                            <select id="propertyTypeFilter" class="input-field">
                                 <option>Property Type</option>
                                 <option>Single Family</option>
                                 <option>Condo</option>
                                 <option>Townhouse</option>
                                 <option>Penthouse</option>
                             </select>
-                            <select class="input-field">
+                            <select id="priceRangeFilter" class="input-field">
                                 <option>Price Range</option>
                                 <option>$500K - $1M</option>
                                 <option>$1M - $2M</option>
                                 <option>$2M - $5M</option>
                                 <option>$5M+</option>
                             </select>
-                            <select class="input-field">
+                            <select id="bedroomsFilter" class="input-field">
                                 <option>Bedrooms</option>
                                 <option>1+ Beds</option>
                                 <option>2+ Beds</option>
                                 <option>3+ Beds</option>
                                 <option>4+ Beds</option>
                             </select>
-                            <select class="input-field">
+                            <select id="lifestyleFilter" class="input-field">
                                 <option>Lifestyle</option>
                                 <option>Urban Living</option>
                                 <option>Waterfront</option>
@@ -137,15 +153,78 @@
                             </select>
                         </div>
 
-                        <!-- Advanced Filters Toggle -->
-                        <div class="text-center">
-                            <button class="text-primary font-medium hover:underline flex items-center mx-auto space-x-2">
+                        <!-- Advanced Filters Toggle & Clear Button -->
+                        <div class="flex justify-center items-center space-x-6 mt-4">
+                            <button id="advancedFiltersToggleBtn" class="text-primary font-medium hover:underline flex items-center space-x-2">
                                 <span>Advanced Filters</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
+                            <button id="clearFiltersBtn" class="text-sm text-text-secondary hover:text-primary transition-smooth px-4 py-2 rounded-md hover:bg-gray-100 border border-gray-300">Clear All Filters</button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Filters Section (Initially Hidden) -->
+                <div id="advancedFiltersSection" class="hidden card-elevated mb-8 p-6 md:p-8 bg-white shadow-lg rounded-xl border border-gray-200 transition-all duration-300 ease-in-out">
+                    <h3 class="text-2xl font-montserrat font-semibold text-primary mb-6">Advanced Filters</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
+                        <!-- Amenities -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">Key Amenities</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="checkbox" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300" name="amenities" value="pool"><span>Swimming Pool</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300" name="amenities" value="gym"><span>Gym/Fitness Center</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300" name="amenities" value="garage"><span>Private Garage</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300" name="amenities" value="view"><span>Scenic View</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300" name="amenities" value="security"><span>24/7 Security</span></label>
+                            </div>
+                        </div>
+                        <!-- Square Footage -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">Square Footage (Sq.Ft.)</h4>
+                            <div class="flex space-x-2 items-center">
+                                <input type="number" id="minSqft" class="input-field w-full" placeholder="Min">
+                                <span class="text-gray-400 px-1">-</span>
+                                <input type="number" id="maxSqft" class="input-field w-full" placeholder="Max">
+                            </div>
+                        </div>
+                        <!-- Year Built -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">Year Built</h4>
+                             <div class="flex space-x-2 items-center">
+                                <input type="number" id="minYear" class="input-field w-full" placeholder="Min Year">
+                                <span class="text-gray-400 px-1">-</span>
+                                <input type="number" id="maxYear" class="input-field w-full" placeholder="Max Year">
+                            </div>
+                        </div>
+                        <!-- Lot Size -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">Lot Size (Acres)</h4>
+                            <input type="number" id="lotSize" step="0.01" class="input-field w-full" placeholder="e.g., 0.5">
+                        </div>
+                         <!-- Features -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">Property Features</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="checkbox" id="hasVirtualTour" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300"><span>Virtual Tour Available</span></label>
+                                <label class="flex items-center"><input type="checkbox" id="newConstruction" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300"><span>New Construction</span></label>
+                                <label class="flex items-center"><input type="checkbox" id="recentlyRenovated" class="form-checkbox text-primary rounded mr-2 focus:ring-primary-300"><span>Recently Renovated</span></label>
+                            </div>
+                        </div>
+                        <!-- HOA -->
+                        <div>
+                            <h4 class="text-lg font-medium text-primary mb-3">HOA</h4>
+                            <select id="hoaPresence" class="input-field w-full">
+                                <option value="">HOA (Any)</option>
+                                <option value="yes">Has HOA</option>
+                                <option value="no">No HOA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-right">
+                         <button id="applyAdvancedFiltersBtn" class="btn-primary px-8 py-3 text-base">Apply Filters</button>
                     </div>
                 </div>
 
@@ -257,10 +336,17 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-2xl font-montserrat font-semibold text-primary">$2,850,000</h3>
-                            <div class="text-right">
-                                <p class="text-sm text-success font-medium">+15.2% ROI</p>
-                                <p class="text-xs text-text-secondary">Projected</p>
+                            <div>
+                                <h3 class="text-2xl font-montserrat font-semibold text-primary">$2,850,000</h3>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="text-right">
+                                    <p class="text-sm text-success font-medium">+15.2% ROI</p>
+                                    <p class="text-xs text-text-secondary">Projected</p>
+                                </div>
+                                <button class="favorite-btn p-2 rounded-full hover:bg-red-100 text-gray-400 hover:text-red-500 transition-colors" data-property-id="Modern Luxury Estate - $2,850,000" title="Add to Favorites">
+                                    <svg class="w-6 h-6 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </button>
                             </div>
                         </div>
                         <p class="text-text-secondary mb-2">Beverly Hills Modern Estate</p>
@@ -287,9 +373,21 @@
                             </span>
                         </div>
 
-                        <div class="flex space-x-2">
-                            <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
-                            <button class="btn-secondary px-4">3D Tour</button>
+                        <div class="flex space-x-2 items-center">
+                            <a href="property_detail_template.html" class="flex-1 btn-primary text-center py-3">View Details</a>
+                            <button class="btn-secondary px-4 py-3">3D Tour</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P001"
+                                    data-property-name="Beverly Hills Modern Estate"
+                                    data-property-image="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$2,850,000"
+                                    data-property-beds="4"
+                                    data-property-baths="3"
+                                    data-property-sqft="3,200">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -322,10 +420,17 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-2xl font-montserrat font-semibold text-primary">$1,500,000</h3>
-                            <div class="text-right">
-                                <p class="text-sm text-success font-medium">+12.8% ROI</p>
-                                <p class="text-xs text-text-secondary">Projected</p>
+                            <div>
+                                <h3 class="text-2xl font-montserrat font-semibold text-primary">$1,500,000</h3>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="text-right">
+                                    <p class="text-sm text-success font-medium">+12.8% ROI</p>
+                                    <p class="text-xs text-text-secondary">Projected</p>
+                                </div>
+                                <button class="favorite-btn p-2 rounded-full hover:bg-red-100 text-gray-400 hover:text-red-500 transition-colors" data-property-id="Manhattan Penthouse - $1,500,000" title="Add to Favorites">
+                                    <svg class="w-6 h-6 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </button>
                             </div>
                         </div>
                         <p class="text-text-secondary mb-2">Manhattan Luxury Penthouse</p>
@@ -355,6 +460,18 @@
                         <div class="flex space-x-2">
                             <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
                             <button class="btn-secondary px-4">Virtual Tour</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P002"
+                                    data-property-name="Manhattan Luxury Penthouse"
+                                    data-property-image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$1,500,000"
+                                    data-property-beds="3"
+                                    data-property-baths="2"
+                                    data-property-sqft="2,100">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -423,6 +540,18 @@
                         <div class="flex space-x-2">
                             <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
                             <button class="btn-secondary px-4">Schedule Tour</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P003"
+                                    data-property-name="Miami Beach Oceanfront Villa"
+                                    data-property-image="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$4,200,000"
+                                    data-property-beds="5"
+                                    data-property-baths="4"
+                                    data-property-sqft="4,800">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -455,10 +584,17 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-2xl font-montserrat font-semibold text-primary">$875,000</h3>
-                            <div class="text-right">
-                                <p class="text-sm text-success font-medium">+22.1% ROI</p>
-                                <p class="text-xs text-text-secondary">Projected</p>
+                            <div>
+                                <h3 class="text-2xl font-montserrat font-semibold text-primary">$875,000</h3>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="text-right">
+                                    <p class="text-sm text-success font-medium">+22.1% ROI</p>
+                                    <p class="text-xs text-text-secondary">Projected</p>
+                                </div>
+                                <button class="favorite-btn p-2 rounded-full hover:bg-red-100 text-gray-400 hover:text-red-500 transition-colors" data-property-id="Austin Modern Home - $875,000" title="Add to Favorites">
+                                    <svg class="w-6 h-6 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </button>
                             </div>
                         </div>
                         <p class="text-text-secondary mb-2">Austin Modern Retreat</p>
@@ -488,6 +624,18 @@
                         <div class="flex space-x-2">
                             <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
                             <button class="btn-secondary px-4">Analyze ROI</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P004"
+                                    data-property-name="Austin Modern Retreat"
+                                    data-property-image="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$875,000"
+                                    data-property-beds="3"
+                                    data-property-baths="2"
+                                    data-property-sqft="2,400">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -520,10 +668,17 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-2xl font-montserrat font-semibold text-primary">$1,250,000</h3>
-                            <div class="text-right">
-                                <p class="text-sm text-success font-medium">+14.3% ROI</p>
-                                <p class="text-xs text-text-secondary">Projected</p>
+                            <div>
+                                <h3 class="text-2xl font-montserrat font-semibold text-primary">$1,250,000</h3>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="text-right">
+                                    <p class="text-sm text-success font-medium">+14.3% ROI</p>
+                                    <p class="text-xs text-text-secondary">Projected</p>
+                                </div>
+                                <button class="favorite-btn p-2 rounded-full hover:bg-red-100 text-gray-400 hover:text-red-500 transition-colors" data-property-id="Seattle Waterfront Condo - $1,250,000" title="Add to Favorites">
+                                    <svg class="w-6 h-6 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </button>
                             </div>
                         </div>
                         <p class="text-text-secondary mb-2">Seattle Waterfront Condo</p>
@@ -553,6 +708,18 @@
                         <div class="flex space-x-2">
                             <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
                             <button class="btn-secondary px-4">Virtual Tour</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P005"
+                                    data-property-name="Seattle Waterfront Condo"
+                                    data-property-image="https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$1,250,000"
+                                    data-property-beds="2"
+                                    data-property-baths="2"
+                                    data-property-sqft="1,800">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -585,10 +752,17 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-2xl font-montserrat font-semibold text-primary">$695,000</h3>
-                            <div class="text-right">
-                                <p class="text-sm text-success font-medium">+19.7% ROI</p>
-                                <p class="text-xs text-text-secondary">Projected</p>
+                            <div>
+                                <h3 class="text-2xl font-montserrat font-semibold text-primary">$695,000</h3>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="text-right">
+                                    <p class="text-sm text-success font-medium">+19.7% ROI</p>
+                                    <p class="text-xs text-text-secondary">Projected</p>
+                                </div>
+                                <button class="favorite-btn p-2 rounded-full hover:bg-red-100 text-gray-400 hover:text-red-500 transition-colors" data-property-id="Nashville Luxury Home - $695,000" title="Add to Favorites">
+                                    <svg class="w-6 h-6 property-favorite-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </button>
                             </div>
                         </div>
                         <p class="text-text-secondary mb-2">Nashville Music Row Home</p>
@@ -615,9 +789,21 @@
                             </span>
                         </div>
 
-                        <div class="flex space-x-2">
-                            <a href="individual_property_showcase_cinematic_tours.html" class="flex-1 btn-primary text-center">View Details</a>
-                            <button class="btn-secondary px-4">Market Analysis</button>
+                        <div class="flex space-x-2 items-center">
+                            <a href="property_detail_template.html" class="flex-1 btn-primary text-center py-3">View Details</a>
+                            <button class="btn-secondary px-4 py-3">Market Analysis</button>
+                            <button class="p-3 bg-gray-100 hover:bg-primary-50 rounded-lg transition-smooth add-to-compare-btn" title="Add to Compare"
+                                    data-property-id="P006"
+                                    data-property-name="Nashville Music Row Home"
+                                    data-property-image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=100&auto=format&fit=crop"
+                                    data-property-price="$695,000"
+                                    data-property-beds="4"
+                                    data-property-baths="3"
+                                    data-property-sqft="2,800">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -776,13 +962,14 @@
     <div class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg transform translate-y-full transition-transform duration-300" id="comparisonTool">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-4 flex-grow">
                     <h3 class="font-montserrat font-semibold text-primary">Compare Properties</h3>
-                    <span class="text-sm text-text-secondary">0 of 3 selected</span>
+                    <span id="comparisonCounter" class="text-sm text-text-secondary whitespace-nowrap">0 of 3 selected</span>
+                    <div id="comparisonItemsContainer" class="flex space-x-2 items-center ml-4 overflow-x-auto py-1"></div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="btn-primary px-6 py-2">Compare Now</button>
-                    <button class="text-text-secondary hover:text-primary">
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <button id="compareNowBtn" class="btn-primary px-4 sm:px-6 py-2 text-sm">Compare</button>
+                    <button id="closeComparisonBtn" class="p-2 text-text-secondary hover:text-primary rounded-md hover:bg-gray-100">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -868,7 +1055,7 @@
                         <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Property Search</a></li>
                         <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analytics</a></li>
                         <li><a href="agent_profiles_expertise_showcase.html" class="text-primary-200 hover:text-accent transition-smooth">Our Agents</a></li>
-                        <li><a href="individual_property_showcase_cinematic_tours.html" class="text-primary-200 hover:text-accent transition-smooth">3D Tours</a></li>
+                        <li><a href="property_detail_template.html" class="text-primary-200 hover:text-accent transition-smooth">3D Tours / Property Details</a></li>
                         <li><a href="about_elevate_experience.html" class="text-primary-200 hover:text-accent transition-smooth">About Us</a></li>
                     </ul>
                 </div>
@@ -877,10 +1064,10 @@
                 <div>
                     <h4 class="text-lg font-montserrat font-semibold mb-6">Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
+                        <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
                         <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Property Management</a></li>
-                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
                         <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Concierge Services</a></li>
                     </ul>
                 </div>
@@ -924,8 +1111,519 @@
             </div>
         </div>
     </footer>
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <!-- Search Filters Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dreamerModeBtn = document.getElementById('dreamerModeBtn');
+            const investorModeBtn = document.getElementById('investorModeBtn');
+            const mainSearchInput = document.getElementById('mainSearchInput');
+            const searchPropertiesBtn = document.getElementById('searchPropertiesBtn');
+            const propertyTypeFilter = document.getElementById('propertyTypeFilter');
+            const priceRangeFilter = document.getElementById('priceRangeFilter');
+            const bedroomsFilter = document.getElementById('bedroomsFilter');
+            const lifestyleFilter = document.getElementById('lifestyleFilter');
+            const advancedFiltersToggleBtn = document.getElementById('advancedFiltersToggleBtn');
+            const advancedFiltersSection = document.getElementById('advancedFiltersSection');
+            const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+            const applyAdvancedFiltersBtn = document.getElementById('applyAdvancedFiltersBtn'); // Apply button within advanced section
+
+            // Advanced Filter Inputs
+            const amenitiesCheckboxes = document.querySelectorAll('input[name="amenities"]');
+            const minSqftInput = document.getElementById('minSqft');
+            const maxSqftInput = document.getElementById('maxSqft');
+            const minYearInput = document.getElementById('minYear');
+            const maxYearInput = document.getElementById('maxYear');
+            const lotSizeInput = document.getElementById('lotSize');
+            const hasVirtualTourCheckbox = document.getElementById('hasVirtualTour');
+            const newConstructionCheckbox = document.getElementById('newConstruction');
+            const recentlyRenovatedCheckbox = document.getElementById('recentlyRenovated');
+            const hoaPresenceSelect = document.getElementById('hoaPresence');
+
+            // Comparison Tool Elements
+            const comparisonTool = document.getElementById('comparisonTool');
+            const comparisonCounter = document.getElementById('comparisonCounter');
+            const comparisonItemsContainer = document.getElementById('comparisonItemsContainer');
+            const compareNowBtn = document.getElementById('compareNowBtn');
+            const closeComparisonBtn = document.getElementById('closeComparisonBtn');
+            const addToCompareButtons = document.querySelectorAll('.add-to-compare-btn');
+
+            let comparisonList = [];
+            const MAX_COMPARE_ITEMS = 3;
+
+            let currentSearchMode = 'dreamer'; // Default mode, matches initial HTML active button
+
+            if (dreamerModeBtn && investorModeBtn) {
+                dreamerModeBtn.addEventListener('click', () => {
+                    if (currentSearchMode !== 'dreamer') {
+                        currentSearchMode = 'dreamer';
+                        dreamerModeBtn.classList.add('bg-primary', 'text-white');
+                        dreamerModeBtn.classList.remove('text-primary', 'hover:bg-primary-100');
+                        investorModeBtn.classList.add('text-primary', 'hover:bg-primary-100');
+                        investorModeBtn.classList.remove('bg-primary', 'text-white');
+                        console.log('Search mode switched to: Dreamer');
+                    }
+                });
+
+                investorModeBtn.addEventListener('click', () => {
+                    if (currentSearchMode !== 'investor') {
+                        currentSearchMode = 'investor';
+                        investorModeBtn.classList.add('bg-primary', 'text-white');
+                        investorModeBtn.classList.remove('text-primary', 'hover:bg-primary-100');
+                        dreamerModeBtn.classList.add('text-primary', 'hover:bg-primary-100');
+                        dreamerModeBtn.classList.remove('bg-primary', 'text-white');
+                        console.log('Search mode switched to: Investor');
+                    }
+                });
+            }
+
+            if (searchPropertiesBtn) {
+                searchPropertiesBtn.addEventListener('click', () => {
+                    const searchParams = {
+                        mode: currentSearchMode,
+                        searchTerm: mainSearchInput ? mainSearchInput.value : '',
+                        propertyType: propertyTypeFilter ? propertyTypeFilter.value : '',
+                        priceRange: priceRangeFilter ? priceRangeFilter.value : '',
+                        bedrooms: bedroomsFilter ? bedroomsFilter.value : '',
+                        lifestyle: lifestyleFilter ? lifestyleFilter.value : ''
+                    };
+                    console.log('Search Parameters:', searchParams);
+                    // TODO: Implement display/filtering of results based on these params in a later step
+                    // Collect advanced filters if section is visible
+                    if (advancedFiltersSection && !advancedFiltersSection.classList.contains('hidden')) {
+                        const selectedAmenities = [];
+                        amenitiesCheckboxes.forEach(checkbox => {
+                            if (checkbox.checked) selectedAmenities.push(checkbox.value);
+                        });
+                        searchParams.amenities = selectedAmenities;
+                        searchParams.minSqft = minSqftInput ? minSqftInput.value : '';
+                        searchParams.maxSqft = maxSqftInput ? maxSqftInput.value : '';
+                        searchParams.minYear = minYearInput ? minYearInput.value : '';
+                        searchParams.maxYear = maxYearInput ? maxYearInput.value : '';
+                        searchParams.lotSize = lotSizeInput ? lotSizeInput.value : '';
+                        searchParams.hasVirtualTour = hasVirtualTourCheckbox ? hasVirtualTourCheckbox.checked : false;
+                        searchParams.newConstruction = newConstructionCheckbox ? newConstructionCheckbox.checked : false;
+                        searchParams.recentlyRenovated = recentlyRenovatedCheckbox ? recentlyRenovatedCheckbox.checked : false;
+                        searchParams.hoaPresence = hoaPresenceSelect ? hoaPresenceSelect.value : '';
+                    }
+                    console.log('Search Parameters:', searchParams);
+                });
+            }
+
+            if (advancedFiltersToggleBtn && advancedFiltersSection) {
+                advancedFiltersToggleBtn.addEventListener('click', () => {
+                    advancedFiltersSection.classList.toggle('hidden');
+                    console.log('Advanced filters toggled. Visible:', !advancedFiltersSection.classList.contains('hidden'));
+                    // Optional: Change button text/icon based on visibility
+                    const toggleIcon = advancedFiltersToggleBtn.querySelector('svg');
+                    if (toggleIcon) {
+                        if (advancedFiltersSection.classList.contains('hidden')) {
+                            toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>'; // Down arrow
+                        } else {
+                            toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>'; // Up arrow
+                        }
+                    }
+                });
+            }
+
+            if (clearFiltersBtn) {
+                clearFiltersBtn.addEventListener('click', () => {
+                    if (mainSearchInput) mainSearchInput.value = '';
+                    if (propertyTypeFilter) propertyTypeFilter.selectedIndex = 0;
+                    if (priceRangeFilter) priceRangeFilter.selectedIndex = 0;
+                    if (bedroomsFilter) bedroomsFilter.selectedIndex = 0;
+                    if (lifestyleFilter) lifestyleFilter.selectedIndex = 0;
+
+                    amenitiesCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    if (minSqftInput) minSqftInput.value = '';
+                    if (maxSqftInput) maxSqftInput.value = '';
+                    if (minYearInput) minYearInput.value = '';
+                    if (maxYearInput) maxYearInput.value = '';
+                    if (lotSizeInput) lotSizeInput.value = '';
+                    if (hasVirtualTourCheckbox) hasVirtualTourCheckbox.checked = false;
+                    if (newConstructionCheckbox) newConstructionCheckbox.checked = false;
+                    if (recentlyRenovatedCheckbox) recentlyRenovatedCheckbox.checked = false;
+                    if (hoaPresenceSelect) hoaPresenceSelect.selectedIndex = 0;
+
+                    // Optionally hide advanced filters and reset toggle button icon
+                    if (advancedFiltersSection && !advancedFiltersSection.classList.contains('hidden')) {
+                        advancedFiltersSection.classList.add('hidden');
+                        const toggleIcon = advancedFiltersToggleBtn.querySelector('svg');
+                        if (toggleIcon) {
+                            toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>'; // Down arrow
+                        }
+                    }
+                    console.log('All filters cleared.');
+                     // Trigger a search with cleared filters to update results (optional)
+                    if(searchPropertiesBtn) searchPropertiesBtn.click(); 
+                });
+            }
+
+            if(applyAdvancedFiltersBtn && searchPropertiesBtn){
+                applyAdvancedFiltersBtn.addEventListener('click', () => {
+                    searchPropertiesBtn.click(); // Trigger the main search button's logic
+                });
+            }
+
+            // --- Property Comparison Logic ---
+            function updateCompareButtonStates() {
+                addToCompareButtons.forEach(btn => {
+                    const propertyId = btn.dataset.propertyId;
+                    const isInCompareList = comparisonList.some(item => item.id === propertyId);
+                    if (isInCompareList) {
+                        btn.disabled = true;
+                        btn.innerHTML = `<svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`; // Checkmark
+                        btn.title = "Added to Compare";
+                    } else {
+                        btn.disabled = false;
+                        btn.innerHTML = `<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>`; // Plus/compare icon
+                        btn.title = "Add to Compare";
+                    }
+                });
+            }
+
+            function renderComparisonItems() {
+                if (!comparisonItemsContainer) return;
+                comparisonItemsContainer.innerHTML = ''; // Clear existing items
+                comparisonList.forEach(item => {
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'flex items-center space-x-1 p-1 bg-gray-50 rounded-md border border-gray-200 max-w-xs group';
+                    itemEl.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="w-10 h-10 object-cover rounded-sm">
+                        <div class="text-xs overflow-hidden flex-grow">
+                            <p class="font-medium text-primary truncate">${item.name}</p>
+                            <p class="text-text-secondary truncate">${item.price}</p>
+                        </div>
+                        <button class="remove-compare-item p-0.5 rounded hover:bg-red-100 group-hover:opacity-100 opacity-0 transition-opacity" data-id="${item.id}" title="Remove">
+                            <svg class="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    `;
+                    comparisonItemsContainer.appendChild(itemEl);
+                    itemEl.querySelector('.remove-compare-item').addEventListener('click', (e) => {
+                        const idToRemove = e.currentTarget.dataset.id;
+                        comparisonList = comparisonList.filter(p => p.id !== idToRemove);
+                        renderComparisonItems(); 
+                        updateCompareButtonStates();
+                    });
+                });
+
+                if (comparisonCounter) {
+                    comparisonCounter.textContent = `${comparisonList.length} of ${MAX_COMPARE_ITEMS} selected`;
+                }
+                if (compareNowBtn) {
+                     compareNowBtn.disabled = comparisonList.length < 2;
+                }
+
+                if (comparisonTool) {
+                    if (comparisonList.length > 0) {
+                        comparisonTool.classList.remove('translate-y-full');
+                    } else {
+                        comparisonTool.classList.add('translate-y-full');
+                    }
+                }
+            }
+
+            addToCompareButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const btn = e.currentTarget;
+                    const propertyData = {
+                        id: btn.dataset.propertyId,
+                        name: btn.dataset.propertyName,
+                        image: btn.dataset.propertyImage,
+                        price: btn.dataset.propertyPrice,
+                        beds: btn.dataset.propertyBeds,
+                        baths: btn.dataset.propertyBaths,
+                        sqft: btn.dataset.propertySqft
+                    };
+
+                    const isAlreadyAdded = comparisonList.some(item => item.id === propertyData.id);
+                    if (isAlreadyAdded) {
+                        // alert('This property is already in your comparison list.');
+                        return;
+                    }
+
+                    if (comparisonList.length < MAX_COMPARE_ITEMS) {
+                        comparisonList.push(propertyData);
+                        renderComparisonItems();
+                        updateCompareButtonStates();
+                    } else {
+                        alert(`You can only compare up to ${MAX_COMPARE_ITEMS} properties at a time.`);
+                    }
+                });
+            });
+
+            if (closeComparisonBtn) {
+                closeComparisonBtn.addEventListener('click', () => {
+                    comparisonList = [];
+                    renderComparisonItems(); 
+                    updateCompareButtonStates();
+                });
+            }
+
+            if (compareNowBtn) {
+                compareNowBtn.addEventListener('click', () => {
+                    if (comparisonList.length >= 2) {
+                        console.log('Comparing Properties:', comparisonList);
+                        alert('Comparison data logged to console. Comparison page/modal to be implemented.');
+                        // Future: Redirect to a comparison page or show a modal
+                        // window.location.href = 'compare_properties.html?ids=' + comparisonList.map(p => p.id).join(',');
+                    } else {
+                        alert('Please select at least two properties to compare.');
+                    }
+                });
+            }
+            
+            renderComparisonItems(); // Initial call to set up the bar (e.g., hide if empty)
+            updateCompareButtonStates(); // Initial state for add buttons
+
+        });
+    </script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
-<script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // User Authentication Links Management
+            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
+            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+
+            function handleLogout() {
+                localStorage.removeItem('isUserLoggedIn');
+                localStorage.removeItem('loggedInUserEmail');
+                localStorage.removeItem('loggedInUserName');
+                alert('You have been logged out.');
+                updateAuthLinks();
+            }
+
+            function updateAuthLinks() {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                let desktopLinksHTML = '';
+                let mobileLinksHTML = '';
+
+                if (isLoggedIn) {
+                    desktopLinksHTML = `
+                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
+                    `;
+                } else {
+                    desktopLinksHTML = `
+                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
+                    `;
+                }
+
+                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
+                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
+
+                if (isLoggedIn) {
+                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
+                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
+                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
+                }
+            }
+            updateAuthLinks();
+
+            // Generic Inquiry Modal Logic
+            const genericInquiryModal = document.getElementById('genericInquiryModal');
+            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
+            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
+            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
+            const genericInquiryForm = document.getElementById('genericInquiryForm');
+            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
+
+            function openGenericModal(serviceType) {
+                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModal.classList.remove('hidden');
+                    setTimeout(() => { 
+                        genericInquiryModal.classList.remove('opacity-0');
+                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
+                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
+            }
+
+            function closeGenericModal() {
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
+                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
+                    genericInquiryModal.classList.add('opacity-0');
+                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
+                }
+            }
+
+            openInquiryModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const serviceType = button.dataset.serviceType || 'General Inquiry';
+                    openGenericModal(serviceType);
+                });
+            });
+
+            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
+            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
+                if (event.target === genericInquiryModal) closeGenericModal();
+            });
+
+            if (genericInquiryForm) {
+                genericInquiryForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(genericInquiryForm);
+                    console.log('Generic Inquiry Submitted:', {
+                        serviceRequested: formData.get('inquiryServiceName'),
+                        name: formData.get('inquiryUserName'),
+                        email: formData.get('inquiryUserEmail'),
+                        phone: formData.get('inquiryUserPhone'),
+                        message: formData.get('inquiryUserMessage'),
+                    });
+                    alert('Inquiry submitted (check console)!');
+                    genericInquiryForm.reset(); 
+                    closeGenericModal();
+                });
+            }
+
+            // --- Favorite Properties Logic ---
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+            function getFavorites() {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return [];
+                const favoritesKey = `favorites_${userEmail}`;
+                return JSON.parse(localStorage.getItem(favoritesKey)) || [];
+            }
+
+            function saveFavorites(favorites) {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return;
+                const favoritesKey = `favorites_${userEmail}`;
+                localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+            }
+
+            function toggleFavorite(propertyId, button) {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                if (!isLoggedIn) {
+                    alert('Please log in to save favorites.');
+                    // Optional: window.location.href = 'login.html';
+                    return;
+                }
+
+                let favorites = getFavorites();
+                const heartIcon = button.querySelector('.property-favorite-icon');
+
+                if (favorites.includes(propertyId)) {
+                    favorites = favorites.filter(id => id !== propertyId);
+                    // Style as unfavorited
+                    if (heartIcon) {
+                        heartIcon.classList.remove('text-red-500', 'fill-red-500');
+                        heartIcon.classList.add('text-gray-400');
+                        heartIcon.style.fill = 'none'; // Ensure it's an outline
+                    }
+                    button.title = 'Add to Favorites';
+                } else {
+                    favorites.push(propertyId);
+                    // Style as favorited
+                    if (heartIcon) {
+                        heartIcon.classList.remove('text-gray-400');
+                        heartIcon.classList.add('text-red-500', 'fill-red-500'); 
+                    }
+                    button.title = 'Remove from Favorites';
+                }
+                saveFavorites(favorites);
+            }
+
+            function updateFavoriteButtonStates() {
+                const favorites = getFavorites();
+                favoriteButtons.forEach(button => {
+                    const propertyId = button.dataset.propertyId;
+                    const heartIcon = button.querySelector('.property-favorite-icon');
+                    if (favorites.includes(propertyId)) {
+                        if (heartIcon) {
+                            heartIcon.classList.remove('text-gray-400');
+                            heartIcon.classList.add('text-red-500', 'fill-red-500');
+                        }
+                        button.title = 'Remove from Favorites';
+                    } else {
+                        if (heartIcon) {
+                            heartIcon.classList.remove('text-red-500', 'fill-red-500');
+                            heartIcon.classList.add('text-gray-400');
+                            heartIcon.style.fill = 'none';
+                        }
+                        button.title = 'Add to Favorites';
+                    }
+                });
+            }
+
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click if any
+                    const propertyId = button.dataset.propertyId;
+                    toggleFavorite(propertyId, button);
+                });
+            });
+
+            updateFavoriteButtonStates(); // Initial state update on page load
+            // Also update after login/logout if those events are broadcasted or on page navigation
+            // For simplicity, we'll rely on page load for now.
+
+            // Existing Property Discovery JS (Advanced Search, Comparison Tool etc.) should be below this line
+        });
+    </script>
+    <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Generic Inquiry Modal -->
+    <div id="genericInquiryModal" class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="genericInquiryModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-montserrat font-semibold text-primary">Inquiry Form</h2>
+                <button id="closeGenericInquiryModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="genericInquiryForm">
+                <div class="space-y-4">
+                    <div>
+                        <label for="inquiryServiceName" class="block text-sm font-medium text-text-secondary mb-1">Service Requested</label>
+                        <input type="text" id="inquiryServiceName" name="inquiryServiceName" readonly class="input-field w-full bg-gray-100 cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label for="inquiryUserName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
+                        <input type="text" id="inquiryUserName" name="inquiryUserName" required class="input-field w-full" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="inquiryUserEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                        <input type="email" id="inquiryUserEmail" name="inquiryUserEmail" required class="input-field w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="inquiryUserPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
+                        <input type="tel" id="inquiryUserPhone" name="inquiryUserPhone" class="input-field w-full" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label for="inquiryUserMessage" class="block text-sm font-medium text-text-secondary mb-1">Additional Details/Message</label>
+                        <textarea id="inquiryUserMessage" name="inquiryUserMessage" rows="3" class="input-field w-full" placeholder="Any specific requests or questions?"></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-right">
+                    <button type="submit" id="sendGenericInquiryBtn" class="btn-primary px-8 py-3">Submit Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

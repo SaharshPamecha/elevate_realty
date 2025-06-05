@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Estate - Beverly Hills | Elevate Realty</title>
+    <meta name="description" content="Discover this stunning luxury estate in Beverly Hills. 3D virtual tour, detailed specifications, and premium amenities showcase.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Add any specific libraries for 3D viewers or image galleries if needed, e.g., Panellum, PhotoSwipe -->
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-b border-border-light">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.09-.87 2-1.76 2.71-2.71-.95-.65-1.71-1.57-1.71-2.29 0-.72.76-1.64 1.71-2.29C14.16 17 18 12.55 18 7L12 2z"/>
+                            <path d="M12 4.5L6 8v7c0 3.61 2.46 6.5 6 7.5 3.54-1 6-3.89 6-7.5V8l-6-3.5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-montserrat font-semibold text-primary">Elevate Realty</h1>
+                        <p class="text-xs text-text-secondary">Premium Real Estate</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_3d_immersive_experience.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="text-primary font-medium border-b-2 border-primary pb-1">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="text-text-secondary hover:text-primary transition-smooth">Agents</a>
+                    <a href="about_elevate_experience.html" class="text-text-secondary hover:text-primary transition-smooth">About</a>
+                </div>
+
+                <!-- CTA Buttons & Auth Links -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div id="userAuthDesktopLinks" class="flex items-center space-x-4"></div>
+                    <button class="btn-secondary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                    <button class="btn-primary text-sm px-4 py-2 open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 text-text-secondary hover:text-primary" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="homepage_3d_immersive_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="property_discovery_advanced_search_hub.html" class="block px-3 py-2 text-primary font-medium">Properties</a>
+                    <a href="market_analytics_intelligence_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Market Intel</a>
+                    <a href="agent_profiles_expertise_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Agents</a>
+                    <a href="about_elevate_experience.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">About</a>
+                    <div id="userAuthMobileLinks" class="space-y-2 mb-2 pb-2 border-b border-border-light"></div>
+                    <div class="pt-4 space-y-2">
+                        <button class="btn-secondary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="Tour Request">Schedule Tour</button>
+                        <button class="btn-primary text-sm px-4 py-2 w-full open-inquiry-modal-btn" data-service-type="VIP Consultation">VIP Consultation</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Property Hero Section -->
+    <section class="relative pt-24 pb-12 bg-gradient-to-br from-primary-600 to-secondary-800 text-white">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop" 
+                 alt="Luxury property exterior" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null; this.src='https://via.placeholder.com/1920x1080.png?text=Hero+Image+Not+Available';">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-montserrat font-semibold mb-3">Modern Beverly Hills Estate</h1>
+                <p class="text-xl text-primary-200 mb-2">123 Luxury Lane, Beverly Hills, CA 90210</p>
+                <div class="flex items-center space-x-4 mb-6">
+                    <span class="bg-accent text-primary px-3 py-1 rounded-full text-sm font-semibold">For Sale</span>
+                    <span class="text-3xl font-montserrat font-bold text-white">$12,500,000</span>
+                </div>
+                <div class="flex space-x-6 text-lg">
+                    <span><strong class="font-semibold">5</strong> Beds</span>
+                    <span><strong class="font-semibold">7</strong> Baths</span>
+                    <span><strong class="font-semibold">8,200</strong> Sq.Ft.</span>
+                    <span><strong class="font-semibold">0.75</strong> Acre Lot</span>
+                </div>
+                <button class="favorite-btn mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-accent hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-smooth" data-property-id="Modern Beverly Hills Estate - $12,500,000" title="Add to Favorites">
+                    <svg class="property-favorite-icon -ml-1 mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                    <span class="button-text">Save to Favorites</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Left Column: Property Details, Gallery, Virtual Tour -->
+                <div class="lg:col-span-2 space-y-12">
+                    <!-- Image Gallery / 3D Tour Placeholder -->
+                    <section id="property-media">
+                        <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">Visual Showcase</h2>
+                        <div class="card-elevated p-2">
+                            <div class="bg-gray-200 rounded-xl h-96 flex items-center justify-center text-text-secondary mb-4">
+                                <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop"
+                                     alt="Main property view"
+                                     class="w-full h-full object-cover rounded-xl"
+                                     onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x800.png?text=Main+Image+Not+Available';">
+                            </div>
+                            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 1" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1600585153639-a3985a70030c?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 2" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1600573472591-4c66b69944e3?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 3" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=200&auto=format&fit=crop" alt="Thumbnail 4" class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onerror="this.style.display='none'">
+                                <div class="bg-primary-50 rounded-lg h-24 flex items-center justify-center text-primary font-semibold cursor-pointer hover:bg-primary-100 transition-colors">
+                                    +12 more
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Property Description -->
+                    <section id="property-description">
+                        <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">Property Overview</h2>
+                        <div class="prose max-w-none text-text-secondary text-lg">
+                            <p>Nestled in the heart of Beverly Hills, this architectural masterpiece offers unparalleled luxury and sophistication. Designed by renowned architect [Architect's Name], this estate seamlessly blends modern aesthetics with timeless elegance. Floor-to-ceiling windows bathe the interiors in natural light, offering breathtaking views of the city and surrounding canyons.</p>
+                            <p>The expansive open-plan living areas are perfect for grand entertaining or intimate family gatherings. A gourmet chef's kitchen boasts top-of-the-line appliances, custom cabinetry, and a large center island. The master suite is a private sanctuary, complete with a spa-like bathroom, walk-in closets, and a private terrace.</p>
+                            <p>Outdoor amenities include an infinity-edge pool, meticulously landscaped gardens, multiple lounging areas, and an outdoor kitchen. Experience the pinnacle of California living in this exceptional Beverly Hills residence.</p>
+                        </div>
+                    </section>
+
+                    <!-- Key Features & Amenities -->
+                    <section id="property-features">
+                        <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">Key Features & Amenities</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span class="text-text-secondary">Prime Beverly Hills Location</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                <span class="text-text-secondary">Smart Home Automation</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-text-secondary">Gourmet Chef's Kitchen</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                                <span class="text-text-secondary">Infinity Edge Pool & Spa</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span class="text-text-secondary">Private Home Theater</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M21 17H3M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                <span class="text-text-secondary">Panoramic City Views</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                <span class="text-text-secondary">Advanced Security System</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                <span class="text-text-secondary">Guest House / Casita</span>
+                            </div>
+                            <div class="flex items-center bg-primary-50 p-4 rounded-lg">
+                                <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                                <span class="text-text-secondary">Wine Cellar & Tasting Room</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Floor Plans (Placeholder) -->
+                    <section id="floor-plans">
+                        <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">Floor Plans</h2>
+                        <div class="card-elevated p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border border-border rounded-lg p-4 hover:shadow-subtle transition-shadow">
+                                    <img src="https://via.placeholder.com/400x300.png?text=Main+Level+Floor+Plan" alt="Main Level Floor Plan" class="w-full h-auto rounded mb-3" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300.png?text=Image+Error';">
+                                    <h4 class="font-semibold text-primary mb-1">Main Level</h4>
+                                    <p class="text-sm text-text-secondary">4,500 Sq.Ft. | 3 Beds | 3.5 Baths</p>
+                                    <a href="#" class="text-accent-600 hover:text-accent-800 font-medium text-sm mt-2 inline-block">View Details &rarr;</a>
+                                </div>
+                                <div class="border border-border rounded-lg p-4 hover:shadow-subtle transition-shadow">
+                                    <img src="https://via.placeholder.com/400x300.png?text=Upper+Level+Floor+Plan" alt="Upper Level Floor Plan" class="w-full h-auto rounded mb-3" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300.png?text=Image+Error';">
+                                    <h4 class="font-semibold text-primary mb-1">Upper Level</h4>
+                                    <p class="text-sm text-text-secondary">3,700 Sq.Ft. | 2 Master Suites | Office</p>
+                                    <a href="#" class="text-accent-600 hover:text-accent-800 font-medium text-sm mt-2 inline-block">View Details &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Neighborhood Information -->
+                    <section id="neighborhood-info">
+                        <h2 class="text-3xl font-montserrat font-semibold text-primary mb-6">About the Neighborhood: Beverly Hills</h2>
+                        <div class="card-elevated p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <img src="https://images.unsplash.com/photo-1542365439-55880659a933?q=80&w=800&auto=format&fit=crop" 
+                                         alt="Beverly Hills street view" 
+                                         class="w-full h-64 object-cover rounded-xl mb-4"
+                                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600.png?text=Neighborhood+Image+Not+Available';">
+                                    <p class="text-text-secondary mb-4">Beverly Hills is synonymous with luxury, offering world-class shopping on Rodeo Drive, fine dining, and exclusive cultural attractions. Known for its beautiful tree-lined streets and iconic estates, it provides a prestigious and secure environment.</p>
+                                    <a href="market_analytics_intelligence_hub.html#beverly-hills" class="btn-secondary-outline text-sm">Explore Beverly Hills Market Data</a>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-primary mb-3">Local Highlights:</h4>
+                                    <ul class="space-y-2 text-text-secondary">
+                                        <li class="flex items-center"><svg class="w-5 h-5 text-success mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Rodeo Drive Shopping District</li>
+                                        <li class="flex items-center"><svg class="w-5 h-5 text-success mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Spago Beverly Hills & The Ivy</li>
+                                        <li class="flex items-center"><svg class="w-5 h-5 text-success mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Greystone Mansion & Gardens</li>
+                                        <li class="flex items-center"><svg class="w-5 h-5 text-success mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Virginia Robinson Gardens</li>
+                                    </ul>
+                                    <div class="mt-6 bg-gray-200 h-40 rounded-lg flex items-center justify-center text-text-secondary">
+                                        Neighborhood Map Placeholder
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column: Agent Info, Contact Form, Similar Properties -->
+                <aside class="lg:col-span-1 space-y-10">
+                    <section id="agent-contact" class="card-elevated p-6 sticky top-24">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-6">Connect with an Agent</h3>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" 
+                                 alt="Agent Olivia Sterling" 
+                                 class="w-20 h-20 rounded-full object-cover border-2 border-primary"
+                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/150x150.png?text=Agent';">
+                            <div>
+                                <h4 class="text-xl font-semibold text-primary">Olivia Sterling</h4>
+                                <p class="text-sm text-text-secondary">Senior Luxury Advisor</p>
+                                <a href="tel:+15551234567" class="text-sm text-accent-600 hover:text-accent-800 block mt-1">+1 (555) 123-4567</a>
+                            </div>
+                        </div>
+                        <form id="propertyInquiryForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="sr-only">Full Name</label>
+                                <input type="text" name="name" id="inquiryName" placeholder="Full Name" required class="input-field w-full">
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" name="email" id="inquiryEmail" placeholder="Email Address" required class="input-field w-full">
+                            </div>
+                            <div>
+                                <label for="phone" class="sr-only">Phone</label>
+                                <input type="tel" name="phone" id="inquiryPhone" placeholder="Phone Number" class="input-field w-full">
+                            </div>
+                            <div>
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea name="message" id="inquiryMessage" rows="4" placeholder="Your Message (e.g., I'd like to schedule a tour)" required class="input-field w-full"></textarea>
+                            </div>
+                            <button type="submit" id="requestInfoBtn" class="btn-primary w-full">Request Information</button>
+                            <p class="text-xs text-text-secondary text-center">By submitting, you agree to our <a href="#" class="underline">Terms of Service</a>.</p>
+                        </form>
+                    </section>
+
+                    <section id="similar-properties">
+                        <h3 class="text-2xl font-montserrat font-semibold text-primary mb-6">Similar Luxury Properties</h3>
+                        <div class="space-y-6">
+                            <a href="#" class="card-elevated p-4 flex space-x-4 group hover:shadow-subtle transition-shadow">
+                                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=200&auto=format&fit=crop" alt="Malibu Beachfront Villa" class="w-28 h-28 object-cover rounded-lg flex-shrink-0" onerror="this.style.display='none'">
+                                <div>
+                                    <h4 class="font-semibold text-primary group-hover:text-accent transition-colors">Malibu Beachfront Villa</h4>
+                                    <p class="text-lg font-semibold text-accent-700">$15,200,000</p>
+                                    <p class="text-sm text-text-secondary">4 Beds | 5 Baths</p>
+                                </div>
+                            </a>
+                            <a href="#" class="card-elevated p-4 flex space-x-4 group hover:shadow-subtle transition-shadow">
+                                <img src="https://images.unsplash.com/photo-1560185127-6ed189bf0249?q=80&w=200&auto=format&fit=crop" alt="Hollywood Hills Modern" class="w-28 h-28 object-cover rounded-lg flex-shrink-0" onerror="this.style.display='none'">
+                                <div>
+                                    <h4 class="font-semibold text-primary group-hover:text-accent transition-colors">Hollywood Hills Modern</h4>
+                                    <p class="text-lg font-semibold text-accent-700">$9,850,000</p>
+                                    <p class="text-sm text-text-secondary">5 Beds | 6 Baths</p>
+                                </div>
+                            </a>
+                            <a href="#" class="card-elevated p-4 flex space-x-4 group hover:shadow-subtle transition-shadow">
+                                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=200&auto=format&fit=crop" alt="Palm Springs Oasis" class="w-28 h-28 object-cover rounded-lg flex-shrink-0" onerror="this.style.display='none'">
+                                <div>
+                                    <h4 class="font-semibold text-primary group-hover:text-accent transition-colors">Palm Springs Oasis</h4>
+                                    <p class="text-lg font-semibold text-accent-700">$7,100,000</p>
+                                    <p class="text-sm text-text-secondary">3 Beds | 4 Baths</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mt-6">
+                            <a href="property_discovery_advanced_search_hub.html" class="btn-secondary-outline w-full text-center">View More Similar Properties</a>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.09-.87 2-1.76 2.71-2.71-.95-.65-1.71-1.57-1.71-2.29 0-.72.76-1.64 1.71-2.29C14.16 17 18 12.55 18 7L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-montserrat font-semibold">Elevate Realty</h3>
+                            <p class="text-sm text-primary-200">Premium Real Estate</p>
+                        </div>
+                    </div>
+                    <p class="text-primary-200 mb-4">Where luxury meets intelligence in real estate innovation.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Luxury Sales</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Investment Advisory</a></li>
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Analysis</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Property Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="market_analytics_intelligence_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Market Reports</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Investment Guide</a></li>
+                        <li><a href="property_discovery_advanced_search_hub.html" class="text-primary-200 hover:text-accent transition-smooth">Neighborhood Insights</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-smooth">Luxury Lifestyle Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-montserrat font-semibold mb-6">Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-primary-200">1234 Luxury Avenue<br>Beverly Hills, CA 90210</p>
+                        <p class="text-primary-200">+1 (555) 123-4567</p>
+                        <p class="text-primary-200">hello@elevaterealty.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-divider mb-8"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm mb-4 md:mb-0">© 2024 Elevate Realty. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Privacy Policy</a>
+                    <a href="#" class="text-primary-200 hover:text-accent transition-smooth text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mainImage = document.querySelector('#property-media img[alt="Main property view"]');
+        const thumbnails = document.querySelectorAll('#property-media img[alt^="Thumbnail"]');
+        
+        if (mainImage && thumbnails.length > 0) {
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    if (this.src && this.src !== mainImage.src) { // Check if src exists and is different
+                        let newSrc = this.src.replace('w=200', 'w=1200').replace('h=24', 'h=96'); // Adjust for potential size parameters
+                        mainImage.src = newSrc;
+                    }
+                });
+            });
+        }
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+    <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+
+    <!-- Generic Inquiry Modal -->
+    <div id="genericInquiryModal" class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-lg transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="genericInquiryModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-montserrat font-semibold text-primary">Inquiry Form</h2>
+                <button id="closeGenericInquiryModalBtn" class="p-2 text-gray-400 hover:text-primary rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="genericInquiryForm">
+                <div class="space-y-4">
+                    <div>
+                        <label for="inquiryServiceName" class="block text-sm font-medium text-text-secondary mb-1">Service Requested</label>
+                        <input type="text" id="inquiryServiceName" name="inquiryServiceName" readonly class="input-field w-full bg-gray-100 cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label for="inquiryUserName" class="block text-sm font-medium text-text-secondary mb-1">Full Name</label>
+                        <input type="text" id="inquiryUserName" name="inquiryUserName" required class="input-field w-full" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="inquiryUserEmail" class="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                        <input type="email" id="inquiryUserEmail" name="inquiryUserEmail" required class="input-field w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="inquiryUserPhone" class="block text-sm font-medium text-text-secondary mb-1">Phone (Optional)</label>
+                        <input type="tel" id="inquiryUserPhone" name="inquiryUserPhone" class="input-field w-full" placeholder="(555) 123-4567">
+                    </div>
+                    <div>
+                        <label for="inquiryUserMessage" class="block text-sm font-medium text-text-secondary mb-1">Additional Details/Message</label>
+                        <textarea id="inquiryUserMessage" name="inquiryUserMessage" rows="3" class="input-field w-full" placeholder="Any specific requests or questions?"></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-right">
+                    <button type="submit" id="sendGenericInquiryBtn" class="btn-primary px-8 py-3">Submit Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // User Authentication Links Management
+            const userAuthDesktopLinks = document.getElementById('userAuthDesktopLinks');
+            const userAuthMobileLinks = document.getElementById('userAuthMobileLinks');
+
+            function handleLogout() {
+                localStorage.removeItem('isUserLoggedIn');
+                localStorage.removeItem('loggedInUserEmail');
+                localStorage.removeItem('loggedInUserName');
+                alert('You have been logged out.');
+                updateAuthLinks();
+            }
+
+            function updateAuthLinks() {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                let desktopLinksHTML = '';
+                let mobileLinksHTML = '';
+
+                if (isLoggedIn) {
+                    desktopLinksHTML = `
+                        <a href="user_profile.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnDesktop" class="btn-secondary-outline text-sm px-3 py-1.5">Logout</button>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="user_profile.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">My Profile</a>
+                        <button id="logoutBtnMobile" class="btn-secondary-outline text-sm px-4 py-2 w-full text-left">Logout</button>
+                    `;
+                } else {
+                    desktopLinksHTML = `
+                        <a href="login.html" class="text-sm text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="btn-primary text-sm px-4 py-2">Sign Up</a>
+                    `;
+                    mobileLinksHTML = `
+                        <a href="login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Login</a>
+                        <a href="signup.html" class="block px-3 py-2 mt-1 btn-primary text-center">Sign Up</a>
+                    `;
+                }
+
+                if (userAuthDesktopLinks) userAuthDesktopLinks.innerHTML = desktopLinksHTML;
+                if (userAuthMobileLinks) userAuthMobileLinks.innerHTML = mobileLinksHTML;
+
+                if (isLoggedIn) {
+                    const logoutBtnDesktop = document.getElementById('logoutBtnDesktop');
+                    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+                    if (logoutBtnDesktop) logoutBtnDesktop.addEventListener('click', handleLogout);
+                    if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
+                }
+            }
+            updateAuthLinks();
+
+            // Generic Inquiry Modal Logic
+            const genericInquiryModal = document.getElementById('genericInquiryModal');
+            const genericInquiryModalContent = document.getElementById('genericInquiryModalContent');
+            const inquiryServiceNameInput = document.getElementById('inquiryServiceName');
+            const closeGenericInquiryModalBtn = document.getElementById('closeGenericInquiryModalBtn');
+            const genericInquiryForm = document.getElementById('genericInquiryForm');
+            const openInquiryModalButtons = document.querySelectorAll('.open-inquiry-modal-btn');
+
+            function openGenericModal(serviceType) {
+                if (inquiryServiceNameInput) inquiryServiceNameInput.value = serviceType;
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModal.classList.remove('hidden');
+                    setTimeout(() => { 
+                        genericInquiryModal.classList.remove('opacity-0');
+                        genericInquiryModalContent.classList.remove('scale-95', 'opacity-0');
+                        genericInquiryModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                }
+            }
+
+            function closeGenericModal() {
+                if (genericInquiryModal && genericInquiryModalContent) {
+                    genericInquiryModalContent.classList.remove('scale-100', 'opacity-100');
+                    genericInquiryModalContent.classList.add('scale-95', 'opacity-0');
+                    genericInquiryModal.classList.add('opacity-0');
+                    setTimeout(() => genericInquiryModal.classList.add('hidden'), 300);
+                }
+            }
+
+            openInquiryModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const serviceType = button.dataset.serviceType || 'General Inquiry';
+                    openGenericModal(serviceType);
+                });
+            });
+
+            if (closeGenericInquiryModalBtn) closeGenericInquiryModalBtn.addEventListener('click', closeGenericModal);
+            if (genericInquiryModal) genericInquiryModal.addEventListener('click', (event) => {
+                if (event.target === genericInquiryModal) closeGenericModal();
+            });
+
+            if (genericInquiryForm) {
+                genericInquiryForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(genericInquiryForm);
+                    console.log('Generic Inquiry Submitted:', {
+                        serviceRequested: formData.get('inquiryServiceName'),
+                        name: formData.get('inquiryUserName'),
+                        email: formData.get('inquiryUserEmail'),
+                        phone: formData.get('inquiryUserPhone'),
+                        message: formData.get('inquiryUserMessage'),
+                    });
+                    alert('Inquiry submitted (check console)!');
+                    genericInquiryForm.reset(); 
+                    closeGenericModal();
+                });
+            }
+
+            // --- Favorite Property Logic (Property Detail Page) ---
+            const favoriteDetailButton = document.querySelector('.favorite-btn'); // Specific to this page's button
+
+            function getFavorites() {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return [];
+                const favoritesKey = `favorites_${userEmail}`;
+                return JSON.parse(localStorage.getItem(favoritesKey)) || [];
+            }
+
+            function saveFavorites(favorites) {
+                const userEmail = localStorage.getItem('loggedInUserEmail');
+                if (!userEmail) return;
+                const favoritesKey = `favorites_${userEmail}`;
+                localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+            }
+
+            function toggleFavoriteDetail(propertyId, button) {
+                const isLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+                if (!isLoggedIn) {
+                    alert('Please log in to save favorites.');
+                    // Optional: window.location.href = 'login.html';
+                    return;
+                }
+
+                let favorites = getFavorites();
+                const heartIcon = button.querySelector('.property-favorite-icon');
+                const buttonTextSpan = button.querySelector('.button-text');
+
+                if (favorites.includes(propertyId)) {
+                    favorites = favorites.filter(id => id !== propertyId);
+                    if (heartIcon) {
+                        heartIcon.style.fill = 'none';
+                        heartIcon.classList.remove('text-white'); // if it was filled
+                        heartIcon.classList.add('text-white'); // stroke color for outline
+                    }
+                    if (buttonTextSpan) buttonTextSpan.textContent = 'Save to Favorites';
+                    button.title = 'Add to Favorites';
+                } else {
+                    favorites.push(propertyId);
+                    if (heartIcon) {
+                        heartIcon.style.fill = 'currentColor'; // Fill with current text color (white)
+                        heartIcon.classList.add('text-white');
+                    }
+                    if (buttonTextSpan) buttonTextSpan.textContent = 'Saved to Favorites';
+                    button.title = 'Remove from Favorites';
+                }
+                saveFavorites(favorites);
+            }
+
+            function updateFavoriteDetailButtonState() {
+                if (!favoriteDetailButton) return;
+                const favorites = getFavorites();
+                const propertyId = favoriteDetailButton.dataset.propertyId;
+                const heartIcon = favoriteDetailButton.querySelector('.property-favorite-icon');
+                const buttonTextSpan = favoriteDetailButton.querySelector('.button-text');
+
+                if (favorites.includes(propertyId)) {
+                    if (heartIcon) {
+                        heartIcon.style.fill = 'currentColor';
+                        heartIcon.classList.add('text-white');
+                    }
+                    if (buttonTextSpan) buttonTextSpan.textContent = 'Saved to Favorites';
+                    favoriteDetailButton.title = 'Remove from Favorites';
+                } else {
+                    if (heartIcon) {
+                        heartIcon.style.fill = 'none';
+                        heartIcon.classList.add('text-white'); // Keep stroke white
+                    }
+                    if (buttonTextSpan) buttonTextSpan.textContent = 'Save to Favorites';
+                    favoriteDetailButton.title = 'Add to Favorites';
+                }
+            }
+
+            if (favoriteDetailButton) {
+                favoriteDetailButton.addEventListener('click', (e) => {
+                    const propertyId = favoriteDetailButton.dataset.propertyId;
+                    toggleFavoriteDetail(propertyId, favoriteDetailButton);
+                });
+                updateFavoriteDetailButtonState(); // Initial state update
+            }
+
+            // Property Specific Inquiry Form (existing script)
+            const propertyInquiryForm = document.getElementById('propertyInquiryForm');
+
+            if (propertyInquiryForm) {
+                propertyInquiryForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(propertyInquiryForm);
+                    const inquiryName = formData.get('name');
+                    const inquiryEmail = formData.get('email');
+                    const inquiryPhone = formData.get('phone');
+                    const inquiryMessage = formData.get('message');
+
+                    // Attempt to get property name from hero section title
+                    let propertyName = 'this property';
+                    const heroTitleElement = document.querySelector('.pt-24 h1'); // Adjust selector if needed
+                    if (heroTitleElement) {
+                        propertyName = heroTitleElement.textContent.trim() || propertyName;
+                    }
+
+                    const inquiryDetails = {
+                        property: propertyName,
+                        name: inquiryName,
+                        email: inquiryEmail,
+                        phone: inquiryPhone,
+                        message: inquiryMessage
+                    };
+
+                    console.log('Property Inquiry Submitted:', inquiryDetails);
+                    alert('Thank you for your inquiry! An agent will contact you shortly. (Details logged to console)');
+                    
+                    propertyInquiryForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
