@@ -1,5 +1,127 @@
 # Elevate Realty - Luxury Real Estate Platform
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+A modern, responsive, and feature-rich real estate platform built with HTML, Tailwind CSS, and vanilla JavaScript.
+
+## 🚀 Features
+
+- **Responsive Design**: Looks great on all devices
+- **Modern UI/UX**: Clean, intuitive interface with smooth animations
+- **Advanced Property Search**: Filter and sort properties with ease
+- **Property Comparison**: Side-by-side comparison of properties
+- **Favorites System**: Save and manage favorite properties
+- **User Authentication**: Secure login and registration
+- **SEO Optimized**: Built with search engines in mind
+
+## 🛠 Tech Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **Code Formatting**: [Prettier](https://prettier.io/)
+- **Version Control**: Git
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v14+)
+- npm (v7+) or Yarn (v1.22+)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/elevate-realty.git
+   cd elevate-realty
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Update the .env file with your configuration
+   ```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run test` - Run tests (coming soon)
+
+## 🏗 Project Structure
+
+```
+elevate-realty/
+├── public/               # Static files
+├── src/                  # Source files
+│   ├── assets/           # Images, fonts, etc.
+│   ├── components/       # Reusable UI components
+│   ├── layouts/          # Layout components
+│   ├── pages/            # Page components
+│   ├── styles/           # Global styles
+│   └── utils/            # Utility functions
+├── .editorconfig         # Editor configuration
+├── .eslintrc.js          # ESLint configuration
+├── .gitignore            # Git ignore file
+├── .prettierrc           # Prettier configuration
+├── index.html            # Main HTML file
+├── package.json          # Project dependencies and scripts
+├── postcss.config.js     # PostCSS configuration
+├── README.md             # Project documentation
+└── tailwind.config.js    # Tailwind CSS configuration
+```
+
+## 🎨 Design System
+
+### Colors
+
+- **Primary**: `#1a237e` (Indigo 900)
+- **Secondary**: `#37474f` (Blue Gray 800)
+- **Accent**: `#ffd700` (Yellow 400)
+- **Background**: `#fafafa` (Gray 50)
+- **Surface**: `#ffffff` (White)
+
+### Typography
+
+- **Primary Font**: Inter
+- **Display Font**: Montserrat
+- **Monospace Font**: JetBrains Mono
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Vite](https://vitejs.dev/) for the fast build tooling
+- [Heroicons](https://heroicons.com/) for the beautiful icons
+- [Unsplash](https://unsplash.com/) for the placeholder imagesate Realty - Luxury Real Estate Platform
+
 A modern, luxury real estate platform built with HTML5, Tailwind CSS, and advanced JavaScript functionality. Features comprehensive property search, market analytics, agent profiles, and user management systems.
 
 ## 🌟 Features

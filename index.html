@@ -1,96 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elevate Realty - Luxury Real Estate Platform</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: white;
-        }
-        
-        .loader-container {
-            text-align: center;
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffd700, #fbc02d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 400;
-        }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 215, 0, 0.3);
-            border-top: 3px solid #ffd700;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        
-        .loading-text {
-            font-size: 1rem;
-            opacity: 0.8;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevate Realty - Luxury Real Estate Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.js"></script>
+  <style type="text/css">
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+    
+    /* App container */
+    #app {
+      width: 100%;
+      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Main content */
+    main {
+      min-height: calc(100vh - 200px);
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Loader container */
+    .loader-container {
+      text-align: center;
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    /* Logo styles */
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffd700, #fbc02d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Tagline styles */
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+    
+    /* Loading spinner */
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 215, 0, 0.3);
+      border-top: 3px solid #ffd700;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    
+    /* Loading text */
+    .loading-text {
+      font-size: 1rem;
+      opacity: 0.8;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #1e293b;
+      color: white;
+      padding: 2rem 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { 
+        opacity: 0; 
+        transform: translateY(20px); 
+      }
+      100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    @keyframes spin {
+      0% { 
+        transform: rotate(0deg); 
+      }
+      100% { 
+        transform: rotate(360deg); 
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { 
+        opacity: 0.8; 
+      }
+      50% { 
+        opacity: 1; 
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="loader-container">
-        <div class="logo">Elevate Realty</div>
-        <div class="tagline">Where Luxury Meets Intelligence</div>
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Preparing your premium experience...</div>
-    </div>
-
-    <script>
-        // Redirect to the main homepage after 2 seconds
-        setTimeout(function() {
-            window.location.href = 'pages/homepage_3d_immersive_experience.html';
-        }, 2000);
-    </script>
-    <script id="dhws-errorTracker" src="/public/dhws-error-tracker.js"></script>
-    <script id="dhws-elementInspector" src="/public/dhws-web-inspector.js"></script>
-    <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-container">
+    <div class="logo">Elevate Realty</div>
+    <div class="tagline">Loading your luxury real estate experience...</div>
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <!-- Main App Container (initially hidden) -->
+  <div id="app" style="opacity: 0; transition: opacity 0.5s ease-in-out;">
+    <app-header></app-header>
+    
+    <main class="min-h-screen bg-gray-50">
+      <!-- Main content will be loaded here -->
+      <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-primary-800 mb-8">Welcome to Elevate Realty</h1>
+        <p class="text-lg text-gray-700">Your luxury real estate journey begins here.</p>
+      </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <h2 class="text-2xl font-bold">Elevate Realty</h2>
+            <p class="text-gray-400">Luxury Real Estate</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a>
+          </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 Elevate Realty. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+    // Redirect to the main homepage after 2 seconds
+    setTimeout(function() {
+      window.location.href = 'pages/homepage_3d_immersive_experience.html';
+    }, 2000);
+  </script>
+  <script id="dhws-errorTracker" src="/public/dhws-error-tracker.js"></script>
+  <script id="dhws-elementInspector" src="/public/dhws-web-inspector.js"></script>
+  <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
 </body>
 </html>
